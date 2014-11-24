@@ -1,5 +1,5 @@
-//Find a triplet that sum to a given value
-//http://www.geeksforgeeks.org/find-a-triplet-that-sum-to-a-given-value/
+//Find subarray with given sum
+//http://www.geeksforgeeks.org/find-subarray-with-given-sum/
 
 #include<iostream>
 #include<vector>
