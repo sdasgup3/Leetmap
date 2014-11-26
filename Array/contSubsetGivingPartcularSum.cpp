@@ -1,4 +1,5 @@
 //Find subarray with given sum
+//Given an unsorted array of nonnegative integers, find a continous subarray which adds to a given number.
 //http://www.geeksforgeeks.org/find-subarray-with-given-sum/
 
 #include<iostream>
