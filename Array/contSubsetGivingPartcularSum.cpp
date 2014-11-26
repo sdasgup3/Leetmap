@@ -81,7 +81,7 @@ int compare(const void *a,const void *b)
 
 bool findSum_2(int arr[], int n, int sum) 
 {
-  //Method 2: Slising window
+  //Method 2: Sliding  window
   int start = 0 , end = 0;
   int partial_sum = arr[start];
 
