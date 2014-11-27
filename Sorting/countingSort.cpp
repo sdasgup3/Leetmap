@@ -1,5 +1,8 @@
 #include<iostream>
 #include<stdlib.h>
+/*
+http://www.geeksforgeeks.org/radix-sort/
+*/
 
 using namespace std;
 
@@ -11,43 +14,62 @@ void swap(int *a, int *b)
 }
 
 
-void countSort(int arr[], int n, int k_pos, int k_neg)
+void countSort(int arr[], int n, int count[], int k, bool for_pos)
 {
-  int count_pos[k_pos + 1];
-  int count_neg[k_neg + 1];
 
-  for(int i = 0; i <= k_pos; i ++) {
-    count_pos[i] = 0 ;
-  }
-  for(int i = 0; i <= k_neg; i ++) {
-    count_neg[i] = 0 ;
+  for(int i = 0; i <= k; i ++) {
+    count[i] = 0 ;
   }
 
   for(int i = 0; i < n; i ++) {
-    if(arr[i] >= 0) {
-      count_pos[arr[i]] ++;
-    } else {
-      count_neg[-1*arr[i]] ++;
+    if(arr[i] >= 0 && for_pos) {
+      count[arr[i]] ++;
+    } else if(arr[i] < 0 && false == for_pos){
+      count[-1*arr[i]] ++;
     }
   }
 
-  for(int i = 1; i <= k_pos; i ++) {
-    count_pos[i]  += count_pos[i-1];
+  for(int i = 1; i <= k; i ++) {
+    count[i]  += count[i-1];
   }
-  for(int i = 1; i <= k_neg; i ++) {
-    count_neg[i]  += count_neg[i-1];
-  }
+}
 
+
+
+int main()
+{
+  int arr[] = {11,19,0,-1,5,6,16,-3,6,0,14,18,7,21,18,-6,-8};
+  //int arr[] = {2,1,-1,-2};
+
+  int k_pos = 0;
+  int k_neg = 0;
   int num_negs = 0;
-  for(int i = 1; i <= k_neg; i ++) {
-    if(num_negs < count_neg[i]) {
-      num_negs  = count_neg[i];
+
+  for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i ++) {
+    cout << arr[i]  << " ";
+    if(arr[i] >= 0) {
+      if(k_pos < arr[i]) {
+        k_pos = arr[i];
+      }
+    } else {
+      num_negs ++;
+      if(k_neg > arr[i]) {
+        k_neg = arr[i];
+      }
     }
   }
 
+  cout <<endl;
+
+  int count_pos[k_pos + 1];
+  int count_neg[-1*k_neg + 1];
+  int n = sizeof(arr)/sizeof(arr[0]);
+
+  countSort(arr, n, count_pos, k_pos, true );
+  countSort(arr, n, count_neg, -1*k_neg, false );
 
   int output[n];
-  for(int i = 0; i < n; i ++) {
+  for(int i = n-1; i >= 0; i --) {
     if(arr[i] >= 0) {
       output[num_negs + count_pos[arr[i]] - 1 ] = arr[i];
       count_pos[arr[i]] --;
@@ -60,32 +82,7 @@ void countSort(int arr[], int n, int k_pos, int k_neg)
   for(int i = 0; i < n; i ++) {
     arr[i]  = output[i];
   }
-}
 
-
-
-int main()
-{
-  int arr[] = {11,19,0,-1,5,6,16,-3,6,0,14,18,7,21,18,-6,-8};
-  //int arr[] = {1,0,-1,-2};
-
-  int max_pos = 0;
-  int min_neg = 0;
-  for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i ++) {
-    cout << arr[i]  << " ";
-    if(arr[i] >= 0) {
-      if(max_pos < arr[i]) {
-        max_pos = arr[i];
-      }
-    } else {
-      if(min_neg > arr[i]) {
-        min_neg = arr[i];
-      }
-    }
-  }
-  cout <<endl;
-
-  countSort(arr, sizeof(arr)/sizeof(arr[0]), max_pos, -1*min_neg );
   for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i ++) {
     cout << arr[i] << " ";
   }
