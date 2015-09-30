@@ -1,5 +1,4 @@
-/*To implement if a string has all unisue characters.
- * What if cannot use additional data structures?
+/*To check  if two string are permutation to each other.
  */
 
 /* Assumption is characters are extended ASCII encoded i.e 
@@ -13,6 +12,8 @@
 #include<string>
 #include<assert.h>
 #include<stdlib.h>
+#include<algorithm>
+
 
 using namespace std;
 
@@ -28,47 +29,46 @@ int getBit(int I, int bit) {
   return  (I & mask) == 0 ? 0: 1 ;
 }
 
-bool isUnique_v1(string str) 
+bool isPermute_v1(string str1, string str2) 
 {
-  if(str.length() > 256) return false;
-  if(str.length() == 0) return true;
+  if(str1.length() !=  str2.length()) return false;
 
-  vector<bool> v(256,false);
-  for(string::iterator I = str.begin(), E = str.end(); I != E; I++) 
-  {
+  vector<int> v(256,0);
+  for(string::iterator I = str1.begin(), E = str1.end(); I != E; I++) {
     int C = *I;
-    if(v[C]) {
+    v[*I]++;
+  }
+  for(string::iterator I = str2.begin(), E = str2.end(); I != E; I++) {
+    int C = *I;
+    if(v[C] == 0) {
       return false;
-      break;
     }
-    v[*I] = true;
+    v[*I]--;
+  }
+  for(string::iterator I = str1.begin(), E = str1.end(); I != E; I++) {
+    int C = *I;
+    if(0 < v[C]) {
+      return false;
+    }
   }
   return true;
 }
 
-bool isUnique_v2(string str) {
+bool isPermute_v2(string str1, string str2) {
   /* Assuming that sizeof(int) == 32 bits.
    * we need 8 ints so that we have 256  bits in total
    * each rep one character.
    */ 
+  if(str1.length() !=  str2.length()) return false;
 
-  if(str.length() > 256) return false;
-  if(str.length() == 0) return true;
 
-  int Int[8] = {0,0,0,0,0,0,0,0};
+  sort(str1.begin(), str1.end());
+  sort(str2.begin(), str2.end());
 
-  for(string::iterator I = str.begin(), E = str.end(); I != E; I++) 
-  {
-    int C = *I;
-    int index = C/32;
-    int bit = C%32;
-
-    //cout << C << " " << index << " " <<  bit << endl << endl;
-
-    if(1 == getBit(Int[index], bit)) {
+  for(int i = 0; i < str1.length(); i++) {
+    if(str1[i] != str2[i]) {
       return false;
     }
-    setBit(Int[index], bit);
   }
   return true;
 }
@@ -78,12 +78,16 @@ bool isUnique_v2(string str) {
 int main(int argc, char** argv) 
 {
 
-  string input[] ={"aa", "*_@#|12345|\"\"", "|#$%\\"};
-  //string input[] ={"aa"};
-  for(string s:input) {
-    cout << "The string to test: " << s << endl;
-    cout << "isUnique v1: " << ((false == isUnique_v1(s))? "false":"true") << endl; 
-    cout << "isUnique v2: " << ((false == isUnique_v1(s))? "false":"true") << endl; 
+  string input[][2] ={
+                      {"*_@#|12345|\"\"", "54321\"\"||#@_*"},
+                      {"abbb", "ab"},
+                      {"ab", "abc"},
+                      {"ab", "abb"}
+                    };
+  for(int i = 0; i< 4; i ++ ) {
+  cout << "The strings to test: " << input[i][0] << " and "<<  input[i][1]<< endl;
+  cout << "isPermute v1: " << ((false == isPermute_v1(input[i][0], input[i][1]))? "false":"true") << endl; 
+  cout << "isPermute v2: " << ((false == isPermute_v2(input[i][0], input[i][1]))? "false":"true") << endl; 
   }
 
   return 0;
