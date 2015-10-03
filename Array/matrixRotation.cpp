@@ -2,19 +2,22 @@
 #define N 10
 
 
-void swap(int &a, int &b) {
+void swap(int *a, int *b) {
+  if(a == b) {
+    return;
+  }
   /*
-  a = a + b;
-  b = a - b;
-  a = a - b;
+  *a = *a + *b;
+  *b = *a - *b;
+  *a = *a - *b;
 
-  a = a * b;
-  b = a/b;
-  a = a/b;
+  *a = *a * *b;
+  *b = *a / *b;
+  *a = *a / *b;
   */
-  a = a ^ b;
-  b = a ^ b;
-  a = a ^ b;
+  *a = *a ^ *b;
+  *b = *a ^ *b;
+  *a = *a ^ *b;
 }
 
 int main() {
@@ -36,7 +39,7 @@ int main() {
 
   for(int  i = 0; i < N; i++) {
     for(int  j = 0; j < i; j++) {
-      swap(arr[i][j], arr[j][i]);
+      swap(&arr[i][j], &arr[j][i]);
     }
   }
 
