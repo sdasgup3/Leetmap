@@ -83,7 +83,7 @@ bool pp_v2(std::string str) {
 int main()
 {
   std::string str[] = {"aabbcd", "aab", "abCa", "tactcoa"};
-  //int size = sizeof(str)/sizeof(str[0]);
+  int size = sizeof(str)/sizeof(str[0]);
   std::cout << sizeof(str) << " " << sizeof(str[0]) << std::endl;
 
   for(int i = 0 ; i < size; i++) {

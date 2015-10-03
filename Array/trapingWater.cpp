@@ -48,7 +48,7 @@ public:
           m = findNxtBigIndex(A, n, nextB_i, value);
         }
         if(m == -1) {
-           break
+           break;
         }
         count += addContribution(nextB_i, value, m, A, n);
         nextB_i = m;
