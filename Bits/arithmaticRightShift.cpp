@@ -31,6 +31,7 @@ void toBinary(int I) {
 }
 
 void arithRS(int &I, int shift) {
+  if(0 == shift) return;
   I = I >> shift;
   if(I < 0) {
     int mask = pow(2,8*sizeof(int) -1 ) -1;
