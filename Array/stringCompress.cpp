@@ -59,11 +59,13 @@ std::string stringCompress_v2(std::string str1){
       count++;
       ptr1 ++;
     }
-    if(count  > 0) {
+    if(count  > 1) {
       std::string str_count = myitoa(count+1); 
       for(int i = str_count.length() -1 ; i >= 0; i--, ptr2++) {
         str1[ptr2] = str_count[i] ;
       }
+    } else if(1 == count) {
+      str1[ptr2++] = last_c;
     }
   }
   str1[ptr2] = '\0';
@@ -71,17 +73,6 @@ std::string stringCompress_v2(std::string str1){
   for(std::string::iterator I = str1.begin(), E = str1.end(); I!= E; I++) {
     if(*I == '\0') break;
     len2++;
-  }
-
-  if(len1 <= str1.length()) {
-    for(int i = 0 ; i < len2 ;) {
-      char last_c = str1[i];
-      i++;
-      if(2 == int (str1[i]- '0') ) {
-        str1[i] = last_c;
-        i++;
-      }
-    }
   }
 
   return str1;
