@@ -1,138 +1,216 @@
 #include<iostream>
-#include<vector>
+#include<cassert>
 
-using namespace std;
+typedef struct Node{
+  int data;
+  struct Node* next;
+} node;
 
-class listNode {
-  public:
-    int value;
-    listNode* next;
-    listNode(int val) {
-      cout << " In listNode Cons "<< val <<  "\n";
-      value = val;
-      next = NULL;
+
+
+void push(node** head, int data) {
+  node* n_node = new node;
+  n_node->data = data;
+  n_node->next = NULL;
+
+  if(*head == NULL) {
+    *head = n_node;
+  } else {
+    //n_node->next = *head;
+    //*head = n_node;
+    node* temp = *head;
+    while(temp->next != NULL) {
+      temp = temp->next;
     }
-};
+    temp->next = n_node;
+  }
+}
 
+void print(node* head) {
+  if(NULL == head) {
+    return ;
+  }
 
-class linkedList {
+  node* slow = head;
+  node* fast = head;
 
-  private:
-    listNode* head;
-    listNode* curr;
+  while(fast && fast->next) {
+    std::cout << fast->data << " ";
+    std::cout << fast->next->data <<  " ";
+    slow = slow->next;
+    fast = fast->next->next;
 
-  public:
-    linkedList() {
-      head = NULL;
-      curr = NULL;
+    if(slow == fast) {
+      break;
     }
-  
-    void addNode(listNode* node) {
-      if(NULL == curr) {
-        curr = node;
-        head = node;
+  }
+  if(fast)
+    std::cout << fast->data << " ";
+  std::cout << "\n";
+}
+
+node* merge(node* head1, node* head2) {
+
+  if(NULL == head1 ) return head2;
+  if(NULL == head2 ) return head1;
+
+  node* ptrToAdd = NULL;
+  node* runner_1 = head1;
+  node* runner_2 = head2;
+
+  while(runner_2 && runner_1) {
+    if(runner_1->data < runner_2->data) {
+      ptrToAdd = runner_1;
+      runner_1 = runner_1->next;
+    } else if(runner_1->data >= runner_2->data) {
+
+      if(runner_1->data == runner_2->data) {
+        runner_1 = runner_1->next;
+        if(NULL == ptrToAdd) {
+          ptrToAdd = runner_1;
+        } else {
+          ptrToAdd = ptrToAdd->next;
+        }
+      }
+
+      node* nodeToRem = runner_2;
+      runner_2 = runner_2->next;
+      head2 = runner_2;
+
+
+      if(NULL == ptrToAdd) {
+        nodeToRem->next =  runner_1;
+        ptrToAdd = nodeToRem;
+        head1 = ptrToAdd;
       } else {
-        curr->next =  node;
-        curr = node;
+        nodeToRem->next = ptrToAdd->next;
+        ptrToAdd->next = nodeToRem;
+        ptrToAdd = ptrToAdd->next;
+      }
+
+    } 
+    //print(head1);
+    //print(head2);
+    //std::cout << "===\n";
+  }
+
+  if(runner_1 == NULL) {
+    while(runner_2) {
+      node* nodeToRem = runner_2;
+      runner_2 = runner_2->next;
+      
+      if(NULL == ptrToAdd) {
+        nodeToRem->next =  runner_1;
+        ptrToAdd = nodeToRem;
+        head1 = ptrToAdd;
+      } else {
+        nodeToRem->next = ptrToAdd->next;
+        ptrToAdd->next = nodeToRem;
+        ptrToAdd = ptrToAdd->next;
       }
     }
-
-    listNode* getHead() {
-      return head;
-    }
-
-    listNode* getCurr() {
-      return curr;
-    }
-    void advance() {
-      curr = curr->next;
-    }
-
-    void print(){
-      listNode* c = head;
-      while(NULL != c) {
-        cout << c->value << " ";
-        c = c->next;
-      }
-      cout << endl;
-    }
-
-};
-
-
-linkedList* merge(linkedList* L1, linkedList* L2) {
-  linkedList* res = new linkedList;
-  listNode* node1; 
-  listNode* node2; 
-
-  listNode* itr1 = L1->getHead();
-  listNode* itr2 = L2->getHead();
-
-  while((itr1) != NULL && (itr2) != NULL) {
-    if(itr1->value <= itr2->value) {
-      listNode* n = new listNode(itr1->value);
-      res->addNode(n);
-      itr1 = itr1->next;
-    } else {
-      listNode* n = new listNode(itr2->value);
-      res->addNode(n);
-      itr2 = itr2->next;
-    }
   }
-  if(NULL == itr1) {
-    while((itr2) != NULL) {
-      listNode* n = new listNode(itr2->value);
-      res->addNode(n);
-      itr2 = itr2->next;
-    }
-  }
-  if(NULL == itr2) {
-    while((itr1) != NULL) {
-      listNode* n = new listNode(itr1->value);
-      res->addNode(n);
-      itr1 = itr1->next;
-    }
-  }
-  return res;
+
+  return head1;
 }
 
 
+void deleteList(node* head) {
+  while(head) {
+    node* del = head;
+    head= head = head->next;
+    delete del;
+  }
+}
+
+node* M(node* head1, node* head2) {
+
+  if(NULL == head1 ) return head2;
+  if(NULL == head2 ) return head1;
+
+  node* X, *Y, *R, *T;
+  T = NULL;
+  if(head1->data <= head2->data) {
+    X = head1; Y = head2; 
+  } else {
+    X = head2; Y = head1;
+  }
+
+  T = X; 
+  X = X->next;
+  R = T;
+
+  while(X) {
+    if(X->data <= Y->data) {
+      T = X;
+      X = X->next;
+    } else {
+      //if(T) {
+        T->next = Y;
+      //}
+      T = Y;
+      Y = X;
+      X = T->next;
+    } 
+  }
+  T->next =Y;
+
+  return R;
+}
+
 int main() {
-  linkedList* L1 = new linkedList;
-  linkedList* L2 = new linkedList;
+  node* head1= NULL;
+  node* head2= NULL;
 
-  int init_val1[] = {1,3,5,7,9};
-  int init_val2[] = {2,2,2, 4,6,8,10};
-  
-  vector<int> v1(init_val1, init_val1 + (sizeof(init_val1)/sizeof(init_val1[0])));
-  vector<int> v2(init_val2, init_val2 + (sizeof(init_val2)/sizeof(init_val2[0])));
+  push(&head1,10); 
+  push(&head1,11); 
+  push(&head1,12); 
+  push(&head1,13); 
+  push(&head1,1); 
+
+  push(&head2,2); 
+  push(&head2,3); 
+  push(&head2,4); 
+  push(&head2,5); 
+  push(&head2,6); 
+  push(&head2,7); 
+  push(&head2,8); 
+  push(&head2,9); 
 
 
-  listNode** N1 = new listNode*[v1.size()];
-  listNode** N2 = new listNode*[v2.size()];
+  print(head1);
+  print(head2);
+  node* head = M(head1, head2);
+  print(head);
+  deleteList(head);
 
-  for(int i = 0; i < v1.size(); i++) {
-    N1[i] = new  listNode(v1[i]);
-  }
 
-  for(int i = 0; i < v2.size(); i++) {
-    N2[i] = new  listNode(v2[i]);
-  }
+  head1= NULL;
+  head2= NULL;
 
-  for(int i = 0; i < v1.size(); i++) {
-    L1->addNode(N1[i]);
-  }
+  push(&head1,0); 
+  push(&head1,2); 
+  push(&head1,4); 
+  push(&head1,6); 
+  push(&head1,7); 
+  push(&head1,8); 
+  push(&head1,10); 
 
-  for(int i = 0; i < v2.size(); i++) {
-    L2->addNode(N2[i]);
-  }
+  push(&head2,1); 
+  push(&head2,3); 
+  push(&head2,5); 
+  push(&head2,7); 
+  push(&head2,9); 
+  push(&head2,11); 
+  push(&head2,12); 
+  push(&head2,13); 
 
-  L1->print();
-  L2->print();
 
-  linkedList* L3 = merge(L1, L2);
-  L3->print();
+  print(head1);
+  print(head2);
+  head = M(head1, head2);
+  print(head);
+  deleteList(head);
 
   return 0;
 }
-
