@@ -92,12 +92,22 @@ int main()
 
     free_alligned(ptr);
   }
-
-
-    size = 1;
-    alignment = 1;
+  size = 1;
+  alignment = 1;
   printf("Trying aligned %zd, size %zd\n", alignment, size);
   malloc_alligned(&ptr, alignment, size);   
+
+  for( iter = 0 ; iter < 100; iter++) {
+    size = rand() % 100;
+    alignment = rand() % 100;
+
+    printf("Trying aligned %zd, size %zd\n", alignment, size);
+    malloc_alligned(&ptr, alignment, size);   
+
+
+    free_alligned(ptr);
+  }
+
   return 0;
 }
 
