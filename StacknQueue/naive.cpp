@@ -1,4 +1,5 @@
 #include<iostream>
+#define K 5
 
 typedef struct _Node {
     int data;
@@ -102,6 +103,61 @@ class queue {
     }
 };
 
+class queue_array {
+  private:
+    int *arr;
+    int head;
+    int last;
+
+  public:
+    queue_array():head(-1), last(-1)  {
+      arr = new int[K];
+    }
+
+    void enq(int data) {
+      if((last + 1)%K == head) {
+        std::cerr<<"Full\n";
+        return;
+      }
+
+      if(-1 == head) {
+        head = last = 0;
+      } else {
+        last = (last  +1 )%K;
+      }
+      arr[last] = data;
+    }
+
+    int deq() {
+      if(head ==  -1) {
+        std::cerr << "Nothing to delete";
+        return 0;
+      }
+      int ret = arr[head];
+
+      if(head == last) {
+        head = last = -1;
+      } else {
+        head = (head  +1 )%K;
+      }
+      return ret;
+    }
+
+    bool isEmpty() {
+      return head == -1;
+    }
+
+    void print() {
+      int i = 0;
+          std::cout << "<"<< head << " " << last << ">\n"; 
+        while(i < K) {
+          std::cout << arr[i] << " "; 
+          i = i +1 ;
+        }
+      std::cout << "\n";
+    }
+};
+
 
 int main() {
   stack *s = new stack;
@@ -130,5 +186,43 @@ int main() {
   q->print();
   q->enq(1);
   q->print();
+
+  queue_array *Q = new queue_array;
+  Q->enq(1);
+  Q->print();
+  Q->enq(2);
+  Q->print();
+  Q->enq(3);
+  Q->print();
+  Q->deq();
+  Q->print();
+  Q->deq();
+  Q->print();
+  Q->deq();
+  Q->print();
+  Q->enq(4);
+  Q->print();
+  Q->enq(5);
+  Q->print();
+  Q->enq(6);
+  Q->print();
+  Q->enq(7);
+  Q->print();
+  Q->enq(8);
+  Q->print();
+  Q->deq();
+  Q->print();
+  Q->deq();
+  Q->print();
+  Q->deq();
+  Q->print();
+  Q->deq();
+  Q->print();
+  Q->deq();
+  Q->print();
+
+
+
+
   return 0;
 }
