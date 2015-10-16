@@ -3,6 +3,7 @@
 
 typedef struct _Node{
   int v;
+  bool selected;
   struct _Node* left;
   struct _Node* right;
 } node;
@@ -12,6 +13,7 @@ void
 insert(node** root, int v) {
   node* n = new node;
   n->v = v;
+  n->selected = false;
   n->left = NULL;
   n->right = NULL;
 
@@ -52,18 +54,61 @@ sum(node* root) {
 
 }
 
+
 int
 minpath_sum(node* root) {
-  if(NULL == root) return 0;
+
+  if(NULL == root) {
+    return 0;
+  }
 
   int left_sum = minpath_sum(root->left);
   int right_sum = minpath_sum(root->right);
 
-  if(left_sum <= right_sum) {
-    return root->v + left_sum;
-  } else {
+  //leaf
+  if(left_sum == 0 && right_sum == 0 ) {
+    return root->v;
+  }
+
+  if(left_sum == 0 ) {
+    root->right->selected = true;
     return root->v + right_sum;
   }
+  if(right_sum == 0 ) {
+    root->left->selected = true;
+    return root->v + left_sum;
+  }
+
+  if(left_sum <= right_sum) {
+    root->left->selected = true;
+    return root->v + left_sum;
+  } else {
+    root->right->selected = true;
+    return root->v + right_sum;
+  }
+}
+
+void
+printMinSumPath(node* root) {
+
+  if(NULL == root || root->selected == false) {
+    return ;
+  }
+
+  std::cout << root->v << " " ;
+  printMinSumPath(root->left);
+  printMinSumPath(root->right);
+}
+
+void
+deleteBST(node * root) {
+  if(NULL == root) {
+    return;
+  }
+
+  deleteBST(root->left);
+  deleteBST(root->right);
+  delete root;
 }
 
 int main()
@@ -81,6 +126,21 @@ int main()
 
   std::cout << "Sum " << sum(root) << "\n"; 
   std::cout << "Min path sum " << minpath_sum(root) << "\n"; 
+  root->selected = true;
+  printMinSumPath(root);
+  std::cout << " \n"; 
+  deleteBST(root);
+
+  root = NULL;
+
+  insert(&root,10);
+  insert(&root,11);
+  insert(&root,12);
+  insert(&root,13);
+  insert(&root,14);
+  std::cout << "Min path sum " << minpath_sum(root) << "\n"; 
+  root->selected = true;
+  printMinSumPath(root);
 
   return 0;
 }
