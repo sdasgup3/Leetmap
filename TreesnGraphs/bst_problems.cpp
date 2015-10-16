@@ -1,9 +1,9 @@
 #include<iostream>
+#include<climits>
 
 
 typedef struct _Node{
   int v;
-  bool selected;
   struct _Node* left;
   struct _Node* right;
 } node;
@@ -13,7 +13,6 @@ void
 insert(node** root, int v) {
   node* n = new node;
   n->v = v;
-  n->selected = false;
   n->left = NULL;
   n->right = NULL;
 
@@ -62,42 +61,59 @@ minpath_sum(node* root) {
     return 0;
   }
 
-  int left_sum = minpath_sum(root->left);
-  int right_sum = minpath_sum(root->right);
-
-  //leaf
-  if(left_sum == 0 && right_sum == 0 ) {
+  if(NULL  == root->left && NULL == root->right) {
     return root->v;
   }
-
-  if(left_sum == 0 ) {
-    root->right->selected = true;
-    return root->v + right_sum;
+  if(NULL  == root->left && NULL != root->right) {
+    return root->v + minpath_sum(root->right);
   }
-  if(right_sum == 0 ) {
-    root->left->selected = true;
-    return root->v + left_sum;
+  if(NULL  != root->left && NULL == root->right) {
+    return root->v + minpath_sum(root->left);
   }
-
-  if(left_sum <= right_sum) {
-    root->left->selected = true;
-    return root->v + left_sum;
-  } else {
-    root->right->selected = true;
-    return root->v + right_sum;
+  if(NULL  != root->left && NULL != root->right) {
+    int left_sum = minpath_sum(root->left);
+    int right_sum = minpath_sum(root->right);
+    return root->v + std::min(left_sum, right_sum);
   }
 }
 
-void
-printMinSumPath(node* root) {
 
-  if(NULL == root || root->selected == false) {
+void 
+printMinPath(node* root, node* target) {
+  if(NULL == root) return;
+
+  std::cout << " " << root->v ;
+  if(root == target) {
+    std::cout << "\n ";
+    return;
+  }
+
+  if(target->v <= root->v) {
+    printMinPath(root->left, target);
+  } else {
+    printMinPath(root->right, target);
+  } 
+}
+
+void
+minpath_sum_v2(node* root, int* min_sum, int current, node** min_leaf) {
+
+  if(NULL == root) {
     return ;
   }
 
-  std::cout << root->v << " " ;
-  printMinSumPath(root->left);
-  printMinSumPath(root->right);
+  current += root->v; 
+
+  if(NULL  == root->left && NULL == root->right) {
+    if(current < *min_sum) {
+      *min_sum = current;
+      *min_leaf = root;
+    }
+    return ;
+  }
+
+  minpath_sum_v2(root->left, min_sum, current, min_leaf);
+  minpath_sum_v2(root->right, min_sum, current, min_leaf);
 }
 
 void
@@ -124,11 +140,12 @@ int main()
   inorder(root);
   std::cout << " \n"; 
 
-  std::cout << "Sum " << sum(root) << "\n"; 
   std::cout << "Min path sum " << minpath_sum(root) << "\n"; 
-  root->selected = true;
-  printMinSumPath(root);
-  std::cout << " \n"; 
+  int min_sum = INT_MAX;
+  node* min_leaf = NULL;
+  minpath_sum_v2(root, &min_sum, 0, &min_leaf);
+  std::cout << "Min path sum " << min_sum <<  "\n"; 
+  printMinPath(root, min_leaf);
   deleteBST(root);
 
   root = NULL;
@@ -138,9 +155,31 @@ int main()
   insert(&root,12);
   insert(&root,13);
   insert(&root,14);
+  inorder(root);
+  std::cout << " \n"; 
   std::cout << "Min path sum " << minpath_sum(root) << "\n"; 
-  root->selected = true;
-  printMinSumPath(root);
+  min_sum = INT_MAX;
+  min_leaf = NULL;
+  minpath_sum_v2(root, &min_sum, 0, &min_leaf);
+  std::cout << "Min path sum " << min_sum <<  "\n"; 
+  printMinPath(root, min_leaf);
+  deleteBST(root);
+
+  root = NULL;
+  insert(&root,10);
+  insert(&root,-2);
+  insert(&root,7);
+  insert(&root,13);
+  insert(&root,14);
+  inorder(root);
+  std::cout << " \n"; 
+  std::cout << "Min path sum " << minpath_sum(root) << "\n"; 
+  min_sum = INT_MAX;
+  min_leaf = NULL;
+  minpath_sum_v2(root, &min_sum, 0, &min_leaf);
+  std::cout << "Min path sum " << min_sum <<  "\n"; 
+  printMinPath(root, min_leaf);
+  deleteBST(root);
 
   return 0;
 }
