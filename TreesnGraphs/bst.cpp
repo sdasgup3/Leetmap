@@ -10,12 +10,12 @@ typedef struct _Node{
 
 void
 insert(node** root, int v) {
-  node* n = new node;
-  n->v = v;
-  n->left = NULL;
-  n->right = NULL;
 
   if(NULL  == *root) {
+    node* n = new node;
+    n->v = v;
+    n->left = NULL;
+    n->right = NULL;
     *root = n;
     return;
   }
@@ -24,12 +24,20 @@ insert(node** root, int v) {
     if((*root)->left) {
       insert(&((*root)->left), v);
     } else {
+      node* n = new node;
+      n->v = v;
+      n->left = NULL;
+      n->right = NULL;
       (*root)->left = n;
     }
   } else{
     if((*root)->right) {
       insert(&((*root)->right), v);
     } else {
+      node* n = new node;
+      n->v = v;
+      n->left = NULL;
+      n->right = NULL;
       (*root)->right = n;
     }
   }
@@ -43,6 +51,18 @@ inorder(node* root) {
   std::cout << root->v << " "; 
   inorder(root->right);
 }
+void 
+deleteBST(node* root)
+{
+
+  if(NULL == root) {
+    return;
+  }
+  deleteBST(root->left);
+  deleteBST(root->right);
+  delete root;
+}
+
 
 int main()
 {
@@ -57,6 +77,8 @@ int main()
 
   inorder(root);
   std::cout << " \n"; 
+  deleteBST(root);
+
 
   return 0;
 }
