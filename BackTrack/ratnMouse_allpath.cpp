@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#define N 4
+#define N 9
 int offset_x[] = {1,   0, -1, 0};
 int offset_y[] = {0,   1, 0, -1};
 
@@ -50,6 +50,7 @@ solve(int maze[N][N],   std::vector<std::pair<int, int>> &S)
     next_move_y = last_move_y + offset_y[i];
 
     if(true == isSafe(maze, next_move_x, next_move_y)) {
+      //std::cout << next_move_x << " " << next_move_y << std::endl;
       S.push_back(std::pair<int , int>(next_move_x,next_move_y));
       maze[next_move_x][next_move_y] = 0; 
 
@@ -60,6 +61,7 @@ solve(int maze[N][N],   std::vector<std::pair<int, int>> &S)
       }
 
       std::pair<int , int> temp = S.back();
+      //std::cout << "pop " << temp.first << " " << temp.second << std::endl;
       maze[temp.first][temp.second] = 1;
       S.pop_back();
     } 
@@ -80,7 +82,6 @@ bool solveMaze(int maze[N][N])
 // driver program to test above function
 int main()
 {
-  /*
     int maze[N][N]  =  { 
         {1, 0, 0, 0, 1, 0, 0, 0,  0},
         {1, 1, 0, 1, 1, 1, 1, 1,  0},
@@ -92,13 +93,14 @@ int main()
         {1, 1, 1, 1, 1, 0, 0, 1,  0},
         {1, 1, 1, 1, 1, 0, 0, 1,  1}
     };
-    */
+    /*
   int maze[N][N]  =  { 
         {1, 0, 0, 0},
         {1, 1, 1, 1},
         {0, 1, 1, 0},
         {1, 1, 1, 1}
     };
+    */
  
     solveMaze(maze);
     return 0;
