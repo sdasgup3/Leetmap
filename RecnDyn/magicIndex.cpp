@@ -40,10 +40,11 @@ binsearch(int arr[], int n, int k) {
 
 int main() {
 
-  int arr[]  = {-1,0,2,4,5,6,7,8};
+  //int arr[]  = {-1,0,2,4,5,6,7,8};
+  int arr[]  = {-40,-20,-1,1,2,3,5,7, 9, 12, 13};
 
   for(int i = 0 ; i < 10; i++) {
-    std::cout << "find " << i << " :" << binsearch(arr, 8, i) << "\n"; 
+    std::cout << "find " << i << " :" << binsearch(arr, 11, i) << "\n"; 
   }
 
   std::cout << "Magic index :" << magicIndex(arr, 8) << "\n"; 
