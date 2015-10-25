@@ -79,7 +79,12 @@ malloc_alligned(size_t allignment, size_t size) {
   char* ptr = (char *)data;
   ptr = ptr + sizeof(size_t);
 
-  char *next_alligned_ptr = (ptr - ((size_t)ptr % allignment)) + allignment;
+  char *next_alligned_ptr ;
+  if(((size_t)ptr % allignment) == 0 ) {
+    next_alligned_ptr = ptr ;
+  } else {
+    next_alligned_ptr = (ptr - ((size_t)ptr % allignment)) + allignment;
+  }
 
   size_t* ptrActualData = (size_t*)(next_alligned_ptr - sizeof(size_t));
   (*ptrActualData) = (size_t)data; 
@@ -119,18 +124,3 @@ int main()
 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
