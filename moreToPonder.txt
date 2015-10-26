@@ -1,1 +1,47 @@
 strtok implementation.
+merge sotered ll
+matrx col row sorted:
+  kth smallest
+  sort it
+  median
+  search
+matrix of 1 0 sorted rowwise
+  count number of 1s
+array
+  find kth smallest
+  median
+
+
+
+//partition  
+  int 
+partition(int arr[], int start, int end) {
+  int low = start;
+  int high = end;
+  int pivot = arr[start];@NOTE
+
+  while(low < high) {
+    while(arr[low] <= pivot && low <= end) {
+      low ++;
+    }
+    while(arr[high] > pivot && high >= 0) {
+      high --;
+    }
+
+    if(low < high) {
+      int temp = arr[low];
+      arr[low]  = arr[high];
+      arr[high] = temp;
+    }
+  }
+  arr[start] = arr[high]; @NOTE
+  arr[high] = pivot;
+  return high;
+}
+
+int QSort(int arr[], int start, int end, int k) {
+  if(start > end) { @NOTE
+    return -1;
+  }
+
+
