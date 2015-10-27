@@ -7,6 +7,9 @@ matrix of 1 0 sorted rowwise
   count number of 1s
 
 
+http://blog.codingforinterviews.com/
+
+
 
 //partition  
   int 
