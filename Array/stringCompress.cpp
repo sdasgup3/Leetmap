@@ -77,6 +77,56 @@ std::string stringCompress_v2(std::string str1){
 
   return str1;
 }
+
+std::string
+Mitoa(int n) {
+  std::string str("");
+
+  while(n) {
+    int q = n/10;
+    int r=  n%10;
+    str.push_back(r + 48);  
+    n = q;
+  }
+
+  return str;
+
+}
+
+std::string stringCompress_v3(std::string str){
+  int len = str.length();
+  if(0 == len) {
+    return str;
+  }
+  
+  int ptr1 =0 ;
+  int ptr2 =0 ;
+
+  for( ; ptr1 < len; ) {
+    char c = str[ptr1];
+
+    int k = ptr1 +1;
+    int count = 0;
+    while(k < len && str[k] == c )  {
+      count++;
+      k++;
+    }
+    ptr1 = k;
+    str[ptr2++] = c;
+
+    if(count >= 2) {
+      std::string s = Mitoa(count+1);
+      for(int i = s.length()-1 ; i >= 0; i--, ptr2++) {
+        str[ptr2] = s[i];
+      }
+    } else if(count == 1) {
+      str[ptr2++] = c;
+    }
+  }
+  str[ptr2] = '\0';
+  return str;
+}
+
 int main()
 {
   std::string str[] = {"aabccccaaa", "abc", "aabbcc"};
@@ -85,9 +135,11 @@ int main()
   for(int i = 0; i < size; i++) {
     std::string str1 = stringCompress(str[i]);
     std::string str2 = stringCompress_v2(str[i]);
+    std::string str3 = stringCompress_v3(str[i]);
     std::cout << " Str: "  << str[i] <<  std::endl;
     std::cout << " Compress: " << str1 << std::endl;
     std::cout << " Compress: " << str2.c_str() << std::endl;
+    std::cout << " Compress: " << str3.c_str() << std::endl;
   }
 
   return 0;
