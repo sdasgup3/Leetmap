@@ -5,6 +5,8 @@ matrx col row sorted:
   median
 matrix of 1 0 sorted rowwise
   count number of 1s
+superset
+permutation
 
 
 http://blog.codingforinterviews.com/
