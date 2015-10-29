@@ -48,6 +48,16 @@ substring(char* str, char* substr)
   return NULL;
 }
 
+bool
+isRotation(std::string str1, std::string str2) {
+  std::string s = str1+str1;
+  if(substring(const_cast<char*> (s.c_str()), const_cast<char *> (str2.c_str())) ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 int main()
 {
   char* str     = "babad" ;
@@ -60,9 +70,19 @@ int main()
   res = substring(str, substr);
   std::cout << res << "\n";
 
-  str =  "bababd";
-  substr = "babd2";
-  res = substring(str, substr);
-  std::cout << res << "\n";
+  //str =  "bababd";
+  //substr = "babd2";
+  //res = substring(str, substr);
+  //std::cout << res << "\n";
+
+  std::string str1("codinginterview");
+  std::string str2("dinginterviewc1o");
+  if(isRotation(str1, str2)) {
+    std::cout  << "isRot\n";
+  } else {
+    std::cout << "isRot NOT\n";
+  }
+
+
   return 0;
 }
