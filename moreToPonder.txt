@@ -6,13 +6,10 @@ superset
 permutation
 
 Question: Axis­Aligned Rectangles
-stock problem
-
 
 http://blog.codingforinterviews.com/
 
 http://www.geeksforgeeks.org/maximum-contiguous-circular-sum/
-http://www.geeksforgeeks.org/dynamic-programming-set-27-max-sum-rectangle-in-a-2d-matrix/
 
 
 
