@@ -17,6 +17,13 @@ std::ostream& operator<< (std::ostream& stream, vector<int> v)
 
 }
 
+void
+swap(char* a, char* b) {
+  char temp = *b;
+  *b = *a;
+  *a = temp;
+}
+
 void fill(int pos, vector<int> exclude, int n, int r) 
 {
 
@@ -44,7 +51,7 @@ void permute_v(int n, int r)
 
 }
 
-void permute_helper(std::string str, int &r, std::string &ans, int step) {
+void permute_helper1(std::string str, int &r, std::string &ans, int step) {
   if(step == r) {
     std::cout << ans << "\n";
     Count ++;
@@ -62,8 +69,25 @@ void permute_helper(std::string str, int &r, std::string &ans, int step) {
       remain.append(str.begin()+(i+1), str.end());
     }
 
-    permute_helper(remain, r, ans, step+1);
+    permute_helper1(remain, r, ans, step+1);
     ans.pop_back();
+  }
+}
+
+void permute_helper2(std::string str, int &r, int step) {
+  if(step == r) {
+    for(int i = 0; i < r; i ++ ) {
+      std::cout << str[i] << " ";
+    }
+    std::cout << "\n";
+    Count ++;
+    return;
+  }
+
+  for(int i = step; i < str.length(); i++  ) {
+    swap(&str[step], &str[i]);
+    permute_helper2(str, r, step+1); 
+    swap(&str[step], &str[i]);
   }
 
 
@@ -71,13 +95,14 @@ void permute_helper(std::string str, int &r, std::string &ans, int step) {
 
 void permute(std::string str, int r) {
   std::string ans;
-  permute_helper(str, r, ans, 0); 
+  //permute_helper1(str, r, ans, 0); 
+  permute_helper2(str, r, 0); 
 }
 
 
 int main() {
   std::string str("12345");
-  int r = 4;
+  int r = 5;
   cout << str << " r = " << r << endl;
   permute(str,r);
   cout << " Number Of Soln: " << Count << endl;
