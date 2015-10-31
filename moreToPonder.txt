@@ -57,3 +57,4 @@ int QSort(int arr[], int start, int end, int k) {
   }
 
 
+  srand
