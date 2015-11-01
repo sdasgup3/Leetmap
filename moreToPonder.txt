@@ -10,6 +10,14 @@ dll to bst
   conting sort
   bucket sort
 
+rotateMatrix  
+
+std::size_t found = str3.find(str1);
+  if (found!=std::string::npos)
+    std::cout<< "is rotation : True\n";
+  else
+    std::cout<< "is rotation : False\n";
+
 
 
 //partition  

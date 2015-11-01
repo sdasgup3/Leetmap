@@ -1,4 +1,8 @@
 #include<iostream>
+/*
+Write an algorithm such that if an element in an MxN matrix is 0, its entire row
+and column are set to 0.
+   */
 
 
 void zeroMatrix(int arr[][5], int row, int colm)

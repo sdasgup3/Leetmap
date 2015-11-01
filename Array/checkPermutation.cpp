@@ -17,18 +17,6 @@
 
 using namespace std;
 
-
-void setBit(int &I, int bit) {
-  int mask = 1 << bit;
-  //cout << "mask " <<  mask << endl;
-  I = I | mask;
-}
-
-int getBit(int I, int bit) {
-  int mask = 1 << bit;
-  return  (I & mask) == 0 ? 0: 1 ;
-}
-
 bool isPermute_v1(string str1, string str2) 
 {
   if(str1.length() !=  str2.length()) return false;

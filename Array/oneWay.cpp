@@ -1,6 +1,58 @@
+/*
+`Detect one edit: remove, insert, replace
+*/
+
 #include<iostream>
 #include<string>
 #include<cstring>
+#include<vector>
+
+
+bool oneAway_v1(std::string str1, std::string str2){
+  int len1 = str1.length();
+  int len2 = str2.length();
+
+  if(!(len1 == len2 || len1 == len2-1 || len2 == len1-1)) {
+    return false;
+  }
+
+  std::vector<int> V(256,0);
+  for(int i = 0 ; i < str1.length(); i++) {
+    V[str1[i]] ++;
+  }
+
+  bool oneEdit = false;
+  for(int i = 0 ; i < str2.length(); i++) {
+    if(0 == V[str2[i]] ) {
+      if(true == oneEdit) {
+        return false;
+      } else {
+        oneEdit = true;
+      }
+    } else {
+      V[str2[i]] --;
+    }
+  } 
+
+  oneEdit = false;
+  for(int i = 0 ; i < str1.length(); i++) {
+    if(V[str1[i]] == 0 ) {
+      continue;
+    }
+    if(V[str1[i]] > 1) {
+      return false;
+    }
+    if(V[str1[i]] > 0) {
+      if(true == oneEdit) {
+        return false;
+      } else {
+        oneEdit = true;
+      }
+    }
+  }
+
+  return true;
+}
 
 bool oneAway(std::string str1, std::string str2){
   int len1 = str1.length();
@@ -106,47 +158,35 @@ bool oneAway_v2(std::string str1, std::string str2){
 
   return true;
 }
+
 int main()
 {
   std::string str1("pale");
   std::string str2("ple");
   bool res ;
   std::cout << " Str1: "  << str1 << " " << "Str2: " << str2 << std::endl;
-  res = oneAway(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
-  res = oneAway_v2(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
+  std::cout << " oneAway: " << oneAway(str1, str2) << " " << oneAway_v2(str1, str2) << " "<< oneAway_v1(str1, str2) << std::endl;
 
   str1 = "pale";
   str2 = "bake";
   std::cout << " Str1: "  << str1 << " " << "Str2: " << str2 << std::endl;
-  res = oneAway(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
-  res = oneAway_v2(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
+  std::cout << " oneAway: " << oneAway(str1, str2) << " " << oneAway_v2(str1, str2) << " "<< oneAway_v1(str1, str2) << std::endl;
 
   str1 = "pales";
   str2 = "pale";
   std::cout << " Str1: "  << str1 << " " << "Str2: " << str2 << std::endl;
-  res = oneAway(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
-  res = oneAway_v2(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
+  std::cout << " oneAway: " << oneAway(str1, str2) << " " << oneAway_v2(str1, str2) << " "<< oneAway_v1(str1, str2) << std::endl;
 
   str1 = "pales";
   str2 = "bales";
   std::cout << " Str1: "  << str1 << " " << "Str2: " << str2 << std::endl;
-  res = oneAway(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
-  res = oneAway_v2(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
+  std::cout << " oneAway: " << oneAway(str1, str2) << " " << oneAway_v2(str1, str2) << " "<< oneAway_v1(str1, str2) << std::endl;
 
   str1 = "pales";
   str2 = "patesxz";
   std::cout << " Str1: "  << str1 << " " << "Str2: " << str2 << std::endl;
-  res = oneAway(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
-  res = oneAway_v2(str1, str2);
-  std::cout << " oneAway: " << res << std::endl;
+  std::cout << " oneAway: " << oneAway(str1, str2) << " " << oneAway_v2(str1, str2) << " "<< oneAway_v1(str1, str2) << std::endl;
+
+
   return 0;
 }

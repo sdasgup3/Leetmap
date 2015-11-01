@@ -1,3 +1,8 @@
+/*
+  check if it is a permutation of a palindrom.
+*/
+
+
 #include<iostream>
 #include<cstring>
 
