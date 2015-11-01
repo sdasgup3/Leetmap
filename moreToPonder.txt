@@ -9,17 +9,6 @@ http://blog.codingforinterviews.com/
 http://www.geeksforgeeks.org/maximum-contiguous-circular-sum/
 bst to dll
 dll to bst
-huge file sort
-sorting Searching
-  10.1
-  10.2
-  10.3
-  10.4
-  10.5
-  10.6
-  10.7
-  10.8
-  10.9
   conting sort
   bucket sort
   http://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together/
