@@ -57,6 +57,13 @@ groupAnagrams(std::string str[], int n) {
     std::sort(str, str + n, compareStr);
 }
 
+=======
+bool
+operator<(const node &a, const node &b) {
+  return a.value > b.value;
+}
+std::priority_queue<node> H;
+
 
 
 
