@@ -17,19 +17,16 @@ bool
 isPow3_v2(int n) {
   if(0 == n) return false;
 
-  while(true) {
-    float Q = (float)n / 3;
-    int q = Q;
-    if(q != Q) {
+  while(n != 1) {
+    int Q = n / 3;
+    int R  = n%3;
+    if(R != 0) {
       return false;
     }
-    if(q == 1) {
-      return true;
-    }
-    n = q;
+    n = Q;
   }
 
-  return false;
+  return true;
 }
 
 bool

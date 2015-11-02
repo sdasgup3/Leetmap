@@ -41,6 +41,22 @@ std::size_t found = str3.find(str1);
       remain.append(str.begin(), str.begin() + i);
       remain.append(str.begin()+(i+1), str.end());
     }
+================
+bool compareStr(std::string a, std::string b) {
+    std::sort(a.begin(), a.end());
+      std::sort(b.begin(), b.end());
+        if(strcmp(a.c_str(), b.c_str()) < 0) {
+              return true;
+                } else {
+                      return false;
+                        }
+}
+
+void
+groupAnagrams(std::string str[], int n) {
+    std::sort(str, str + n, compareStr);
+}
+
 
 
 

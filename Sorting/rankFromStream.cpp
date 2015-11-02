@@ -32,7 +32,7 @@ insert(bstNode** root, int k) {
 int
 bstSearch(bstNode* root, int k, int &count) {
   if(NULL == root) {
-    return 0;
+    return count;
   }
 
   if(root->value == k) {

@@ -48,7 +48,7 @@ void malloc_alligned_v2(void **memptr, size_t alignment, size_t size) {
 
   if(0 == ((size_t)data % alignment)) { // Case 2
     *memptr = ( void *) data;
-    *((int *)start_data) = (size_t) start_data; 
+    *((size_t *)start_data) = (size_t) start_data; 
   } else {
     //ofset = distance from x to the next alignment boundary
     size_t offset = alignment - (((size_t) data) % alignment);
@@ -57,7 +57,7 @@ void malloc_alligned_v2(void **memptr, size_t alignment, size_t size) {
 
     assert(0 == (((size_t) (data)) % alignment) &&  "Alignment problem ");
 
-    *((int *)((char *)data  - sizeof(size_t))) = (size_t) start_data; 
+    *((size_t *)((char *)data  - sizeof(size_t))) = (size_t) start_data; 
   }
 
   assert(*memptr >= start_data && *memptr < start_data + total_size);
@@ -67,7 +67,7 @@ void malloc_alligned_v2(void **memptr, size_t alignment, size_t size) {
 void free_alligned_v2(void *memptr) 
 {
   void* book = ((char *) memptr) - sizeof(size_t);
-  void* ptr_to_free = (void *) ( *((int *)(book)) );
+  void* ptr_to_free = (void *) ( *((size_t *)(book)) );
   free(ptr_to_free);
 }
 
