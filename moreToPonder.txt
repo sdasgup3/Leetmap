@@ -11,12 +11,36 @@ dll to bst
   bucket sort
 
 rotateMatrix  
+raarrangePosNeg
+nge
+medianOfNSortedArray.cpp
+consecutiveArrayElements.cpp
+contSubsetGivingPartcularSum.cpp
+LargestSubarrayWithEqualNumberOf0sAnd1s.cpp
+to know the shorthand of heap sort
+pathwithSum (Tree chap)
 
+
+======================================
 std::size_t found = str3.find(str1);
   if (found!=std::string::npos)
     std::cout<< "is rotation : True\n";
   else
     std::cout<< "is rotation : False\n";
+======================================
+ veryLongINT& operator=(const veryLongINT& obj) {
+      I     = obj.I;
+      sign  = obj.sign;
+      return *this;
+    }
+===================
+   if(i == 0) {
+      remain.append(str.begin() + 1, str.end());
+    } else {
+      remain.append(str.begin(), str.begin() + i);
+      remain.append(str.begin()+(i+1), str.end());
+    }
+
 
 
 

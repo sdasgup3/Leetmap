@@ -10,7 +10,7 @@ substring_v1(char* str, char* substr)
   for(int i = 0 ; i < str_len ; i ++ ) {
     if(str[i] == substr[0]) {
       int j;
-      for(j = 0; j < substr_len; j++) {
+      for(j = 0; j < substr_len && (i+j) < str_len; j++) {
         if(str[i + j] != substr[j]) {
           break;
         }

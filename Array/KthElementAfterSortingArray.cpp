@@ -73,6 +73,8 @@ int main()
 {
   int arr[] = {3,6,9,1,2};
   cout<< KthElementInArray(arr, sizeof(arr)/sizeof(arr[0]), 1) << endl;
+  cout<< KthElementInArray(arr, sizeof(arr)/sizeof(arr[0]), 0) << endl;
+  cout<< KthElementInArray(arr, sizeof(arr)/sizeof(arr[0]), 4) << endl;
   return 0;
 }
 

@@ -6,11 +6,11 @@ using namespace std;
 
 //http://www.careercup.com/question?id=5179916190482432
 //1 2 3 4
-          // front 
-//i = 0     1     
-//i = 1     1
-//i = 2     1*2
-//i = 3   1*2*3
+          // front  //rear
+//i = 0     1       2*3*4
+//i = 1     1        3*4 
+//i = 2     1*2     4
+//i = 3   1*2*3     1
           // rear  similarly
 
 

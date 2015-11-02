@@ -19,7 +19,7 @@ std::ostream& operator<<(std::ostream& stream, vector<int> v) {
   return stream;
 }
 
-void rearr(vector<int>& v) 
+void rearr_v(vector<int>& v) 
 {
   int n = v.size();
 
@@ -33,6 +33,19 @@ void rearr(vector<int>& v)
 
 }
 
+void rearr(vector<int>& v) 
+{
+  int n = v.size();
+
+  for(int i= 0; i < n ; i ++) {
+    int posn = v[i] % n ;
+    v[i] += (v[posn]%n)*n;
+  }
+  for(int i= 0; i < n ; i ++) {
+    v[i] = v[i]/n;
+  }
+
+}
 
 
 int main() {

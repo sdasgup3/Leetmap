@@ -35,7 +35,7 @@ std::ostream& operator<<(std::ostream& stream, vector<int> v) {
   return stream;
 }
 
-bool findRepeatAndMissing(vector<int> v) {
+bool findRepeatAndMissing_v(vector<int> v) {
   vector <int> repeating;
   vector <int> missing;
   int n = v.size();
@@ -67,21 +67,43 @@ bool findRepeatAndMissing(vector<int> v) {
 }
 
 
+bool findRepeatAndMissing(vector<int> v) {
+  int max = findMax(v);
+  int k = max+1;
+
+  for(int i = 0;i < v.size(); i++) {
+    int posn = v[i]%k -1;
+    v[posn] += k;  
+  }
+
+  for(int i = 0;i < v.size(); i++) {
+    int value = v[i]/k;
+    if(0 == value) {
+      std::cout << i+1 << " is Missing\n";
+    } else if(2 == value) {
+      std::cout << i+1 << " occurs twice \n";
+    }
+  }
+}
+
 
 int main() {
   int arr[]  = {4, 3, 6, 2, 1, 1};
   vector<int> v(arr, arr + sizeof(arr)/sizeof(arr[0]));
   cout << v;
   findRepeatAndMissing(v);
+  findRepeatAndMissing_v(v);
 
   int arr2[]  = {3, 1, 3};
   vector<int> v2(arr2, arr2 + sizeof(arr2)/sizeof(arr2[0]));
   cout << v2;
   findRepeatAndMissing(v2);
+  findRepeatAndMissing_v(v2);
 
   int arr3[]  = {7, 3, 4, 5, 5, 6, 2};
   vector<int> v3(arr3, arr3 + sizeof(arr3)/sizeof(arr3[0]));
   cout << v3;
   findRepeatAndMissing(v3);
+  findRepeatAndMissing_v(v3);
   return 0;
 }
