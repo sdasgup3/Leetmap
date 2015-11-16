@@ -11,15 +11,14 @@ dll to bst
   bucket sort
 
 rotateMatrix  
-raarrangePosNeg
-nge
-medianOfNSortedArray.cpp
-consecutiveArrayElements.cpp
-contSubsetGivingPartcularSum.cpp
-LargestSubarrayWithEqualNumberOf0sAnd1s.cpp
-to know the shorthand of heap sort
+#raarrangePosNeg
+#nge
+#medianOfNSortedArray.cpp
+#consecutiveArrayElements.cpp
+#contSubsetGivingPartcularSum.cpp
+#LargestSubarrayWithEqualNumberOf0sAnd1s.cpp
 pathwithSum (Tree chap)
-  parens (recDyn)
+parens (recDyn)
 
 
 ======================================
