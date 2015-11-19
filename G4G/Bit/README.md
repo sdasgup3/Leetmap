@@ -1,5 +1,5 @@
-Binary representation of a given number
-Write a program to print Binary representation of a given number.
+1. Binary representation of a given number [binRep.cpp](https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/Bit/binRep.cpp)
+  * Write a program to print Binary representation of a given number.
 
 Find the element that appears once
 Given an array where every element occurs three times, except one element which occurs only once. Find the element that occurs once. Expected time complexity is O(n) and O(1) extra space.
