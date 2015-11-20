@@ -50,8 +50,8 @@ We need not to do anything if a number is positive. We want to change only negat
 Compute modulus division by a power-of-2-number
 Compute n modulo d without division(/) and modulo(%) operators, where d is a power of 2 number.
 
-Compute the minimum or maximum of two integers without branching
-On some rare machines where branching is expensive, the below obvious approach to find minimum can be slow as it uses branching.
+Compute the minimum or maximum of two integers without[minWOBranch.cpp] branching((https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/Bit/minWOBranch.cpp))
+  * On some rare machines where branching is expensive, the below obvious approach to find minimum can be slow as it uses branching.
 
 Rotate bits of a number
 Bit Rotation: A rotation (or circular shift) is an operation similar to shift except that the bits that fall off at one end are put back to the other end.
