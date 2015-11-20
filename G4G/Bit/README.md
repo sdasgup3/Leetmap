@@ -1,17 +1,18 @@
 1. Binary representation of a given number [binRep.cpp](https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/Bit/binRep.cpp)
   * Write a program to print Binary representation of a given number.
 
-Find the element that appears once
+2. Find the element that appears once
 Given an array where every element occurs three times, except one element which occurs only once. Find the element that occurs once. Expected time complexity is O(n) and O(1) extra space.
 
-Detect if two integers have opposite signs
-Given two signed integers, write a function that returns true if the signs of given integers are different, otherwise false.
+3. Detect if two integers have opposite signs [oppSigns.cpp](https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/Bit/oppSigns.cpp)
+  * Given two signed integers, write a function that returns true if the signs of given integers are different, otherwise false.
 
-Count total set bits in all numbers from 1 to n
-Given a positive integer n, count the total number of set bits in binary representation of all numbers from 1 to n.
+4. Count total set bits in all numbers from 1 to n [countSetBit1Ton.cpp](https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/Bit/countSetBit1Ton.cpp)
+  *  Given a positive integer n, count the total number of set bits in binary representation of all numbers from 1 to n.
+  *  Todo (logn)
 
-Swap bits in a given number
-Given a number x and two positions (from right side) in binary representation of x, write a function that swaps n bits at given two positions and returns the result.
+Swap bits in a given number [swapBits.cpp](https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/Bit/swapBits.cpp)
+  * Given a number x and two positions (from right side) in binary representation of x, write a function that swaps n bits at given two positions and returns the result.
 
 Add two numbers without using arithmetic operators
 Write a function Add() that returns sum of two integers. The function should not use any of the arithmetic operators (+, ++, –, -, .. etc).
