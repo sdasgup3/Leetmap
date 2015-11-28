@@ -17,17 +17,18 @@ operator<(const node& a,const  node& b) {
   return a.dist > b.dist;
 }
 
-void
+std::vector<int>
 dijkstra(int graph[V][V], int start) 
 {
   std::vector<int> dist(V, INT_MAX);
+  std::vector<int> parent(V, -1);
   std::priority_queue<node> Q;
-  std::vector<std::vector<int>> path(V);
   std::vector<bool> visited(V, false);
 
 
   Q.push(node(0,0));
   dist[0] = 0;
+  parent[0] = 0;
 
   while(false == Q.empty()) {
 
@@ -44,25 +45,32 @@ dijkstra(int graph[V][V], int start)
       }
 
       if(dist[minI] + graph[minI][i] < dist[i]) {
-
-        //std::cout << i << "  ";
         dist[i] = dist[minI] + graph[minI][i];
         Q.push(node(i, dist[i]));
+        parent[i] = minI;
+
       }
     }
-        //std::cout << " \n ";
   }
 
   //print
   for(int v = 0 ; v < V; v++) {
-    std::cout << v << " : " << dist[v] << "\n\t";
-    for(int i = 0 ; i < path[v].size(); i ++ ) {
-      //std::cout << path[v][i] << " ";
-    }
-    //std::cout << v << "\n ";
+    std::cout << v << " : " << dist[v] << " " << v << "--" << parent[v] << " \n";
   }
+
+  return parent;
 }
 
+void
+getPath(std::vector<int> T, int start, int end)
+{
+  if(end == start) {
+    std::cout << start << " ";
+    return;
+  }
+  getPath(T, start, T[end]);
+  std::cout << end << " ";
+}
 
 int main()
 {
@@ -80,7 +88,7 @@ int main()
                       {0,   0,  2, 0,   0,  0,  6,  7, 0}
                      };
  
-    dijkstra(graph, 0);
- 
-    return 0;
+   std::vector<int > T = dijkstra(graph, 0);
+   getPath(T, 0, 4);
+   return 0;
 }
