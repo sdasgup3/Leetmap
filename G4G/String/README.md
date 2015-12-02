@@ -1,2 +1,1 @@
-1. Remove spaces from a given string [beoveSpaces.cpp](https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/Bit/binRep.cpp)
-  * Write a program to print Binary representation of a given number.
+1. Remove spaces from a given string [removeSpaces.cpp](https://github.com/sdasgup3/CodingPuzzles/blob/master/G4G/String/removeSpaces.cpp]
