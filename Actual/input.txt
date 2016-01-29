@@ -1,5 +1,0 @@
-ABC
-AB C
-  DE
-X
-s
