@@ -1,12 +1,16 @@
-##Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+##Sum Root to Leaf Numbers
+Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
 
-For example:
-Given the below binary tree and sum = 22,
-              5
-             / \
-            4   8
-           /   / \
-          11  13  4
-         /  \      \
-        7    2      1
-return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+An example is the root-to-leaf path 1->2->3 which represents the number 123.
+
+Find the total sum of all root-to-leaf numbers.
+
+For example,
+
+    1
+   / \
+  2   3
+The root-to-leaf path 1->2 represents the number 12.
+The root-to-leaf path 1->3 represents the number 13.
+
+Return the sum = 12 + 13 = 25.
