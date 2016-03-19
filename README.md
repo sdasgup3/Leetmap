@@ -4,7 +4,7 @@ This pae is about solving coding questions generallyasked in interviews.The prob
 - [Array]()
 - [Hash Table]()
 - [Linked List]()
-- [Math]()
+- [Math](http://codingpuzzle.blogspot.com/search/label/Math)
 - [Two Pointers]()
 - [String]()
 - [Divide and Conquer]()
