@@ -1,14 +1,14 @@
-This pae is about solving coding questions generallyasked in interviews.The problem/analysis/solutions mentioned in the post are categorized and can be used as a quick summary of useful algorithms. 
+This page is about solving coding questions generally asked in interviews.The problem/analysis/solutions mentioned in the post are categorized and can be used as a quick summary of useful algorithms. 
 
 
 - [Array]()
 - [Hash Table]()
 - [Linked List]()
-- [Math](http://codingpuzzle.blogspot.com/search/label/Math)
+- [Math]()
 - [Two Pointers]()
 - [String]()
 - [Divide and Conquer]()
-- [Binary Search]()
+- [Binary Search](http://codingpuzzle.blogspot.com/search/label/binarytree)
 - [Dynamic Programming]()
 - [Backtracking]()
 - [Stack]()
@@ -30,8 +30,4 @@ This pae is about solving coding questions generallyasked in interviews.The prob
 - [Recursion]()
 - [Brainteaser]()
 - [Memoization]()
-
-
-#### Maths
-- [Add Digits Repeatedly](https://github.com/sdasgup3/CodingPuzzles/blob/master/bySite/leetCode/addDigits/README.md )
 
