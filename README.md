@@ -1,9 +1,33 @@
-## Problem Solving using C++
+This page is about solving coding questions generally asked in interviews.The problem/analysis/solutions mentioned in the post are categorized and can be used as a quick summary of useful algorithms. 
 
-###Some nomenclature
-- A substring of a string S is another string S' that occurs "in" S. For example, "the best of" is a substring of "It was the best of times". This is not to be confused with subsequence, which is a generalization of substring. For example, "Itwastimes" is a subsequence of "It was the best of times", but not a substring.
 
-###Tags
-#### Maths
-- [Add Digits Repeatedly](https://github.com/sdasgup3/CodingPuzzles/blob/master/bySite/leetCode/addDigits/README.md )
+- [Array]()
+- [Hash Table]()
+- [Linked List]()
+- [Math]()
+- [Two Pointers]()
+- [String]()
+- [Divide and Conquer]()
+- [Binary Search](http://codingpuzzle.blogspot.com/search/label/binarytree)
+- [Dynamic Programming]()
+- [Backtracking]()
+- [Stack]()
+- [Heap]()
+- [Greedy]()
+- [Sort]()
+- [Bit Manipulation]()
+- [Tree]()
+- [Depth-first Search]()
+- [Breadth-first Search]()
+- [Union Find]()
+- [Graph]()
+- [Design]()
+- [Topological Sort]()
+- [Trie]()
+- [Binary Indexed Tree]()
+- [Segment Tree]()
+- [Binary Search Tree]()
+- [Recursion]()
+- [Brainteaser]()
+- [Memoization]()
 
