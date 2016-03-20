@@ -32,20 +32,20 @@ This page is about solving coding questions mostly asked in interviews.The probl
 - [Memoization]()
 
 ### Cheatsheet
-- Using std::vectoris too slow than static arrays.
+- Using ```std::vector```is too slow than static arrays.
 ```
 vector<vector<bool>> table (n, vector<bool> (n, false)); //avoid using this
 bool table[n][n];
 memset(table,false,sizeof(table));
 ```
-- std::stack access member functions
+- ```std::stack``` access member functions
 ```
 stack::pop()  //pop deletes but returns nothing 
 stack::top(); // Use this sequesnce instead
 statck::pop();
 ```
 
-- std::queue access member functions
+- ```std::queue```  access member functions
 
 ```
 queue::front(), queue::back() // Access the front and back of the queue
@@ -59,7 +59,7 @@ queue::front();
 queue::pop();
 
 ```
-- std::string member funstions
+- ```std::string``` member funstions
 ```
 string::substr(start, length); //  Ex. s = "codingpuzzle, s.substr(0,6) gives "coding" 
 ```
