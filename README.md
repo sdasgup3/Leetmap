@@ -62,5 +62,5 @@ queue::pop();
 - ```std::string``` member funstions
 ```
 string::substr(start, length); //  Ex. s = "codingpuzzle, s.substr(0,6) gives "coding" 
-```
+string::compare(string s); // returns 0,-1,1 as strlen function
 ```
