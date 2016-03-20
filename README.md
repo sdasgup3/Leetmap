@@ -46,7 +46,17 @@ statck::pop();
 ```
 
 - std::queue access member functions
+
 ```
+queue::front(), queue::back() // Access the front and back of the queue
+queue::push(); // insert element at the back, i.e. after the element accessed by back
+queue::pop();  //removes the front element as  accessed by front();
+
+/* As before pop deletes but returns nothing, so to access the elemnt before deleting it
+** do the following
+*/
+queue::front();
+queue::pop();
 
 ```
 - std::string member funstions
