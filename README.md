@@ -69,6 +69,16 @@ string::append(string/const char*);
 res = s[0] + to_string(len-2) + s[len-1]; // Is valid as there exist a string class friend operator '+' to handle each pair
                                           //(w.r.t left assocoativity)
 For comparision: string.compare(string) or string == string  
+
+  - Splitting based on a dilimiter
+#include<sstream>
+#include<iterator>
+  istringstream buffer(str);
+    istream_iterator<string> begin(buffer);
+    istream_iterator<string> end;
+    vector<string> V(begin, end);
+
+
 ```
 
 - ```std::map``` member funstions
