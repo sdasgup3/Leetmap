@@ -65,9 +65,19 @@ string::substr(start, length); //  Ex. s = "codingpuzzle, s.substr(0,6) gives "c
 string::compare(string s); // returns 0,-1,1 as strlen function
 string::push_back(char);
 string::append(int n, char c);// append n consecutive copies of c
-atring::append(string/const char*);
+string::append(string/const char*);
+res = s[0] + to_string(len-2) + s[len-1]; // Is valid as there exist a string class friend operator '+' to handle each pair
+                                          //(w.r.t left assocoativity)
+For comparision: string.compare(string) or string == string  
 ```
+
 - ```std::map``` member funstions
 ```
 map::erase(key); 
+```
+
+- ```std::unordered_set<T>``` member funstions
+```
+unordered_set::insert(<T>)
+unordered_set::count(<T>)
 ```
