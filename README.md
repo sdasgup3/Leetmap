@@ -40,7 +40,8 @@ memset(table,false,sizeof(table));
 ```
 - ```std::stack``` access member functions
 ```
-stack::pop()  //pop deletes but returns nothing 
+stack::push()  //pushng
+stack::pop()  //pop deletes but returns nothing
 stack::top(); // Use this sequesnce instead
 statck::pop();
 ```
