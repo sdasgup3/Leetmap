@@ -41,6 +41,14 @@ ostream& operator << (ostream& OS, vector<vector<T>> V) {
   }
   OS << "\n" ;
 }
+ostream& operator << (ostream& OS, ListNode* root) {
+  while(root) {
+    OS << root->val << " " ;
+    root = root->next;
+  }
+  OS << "\n" ;
+}
+
 ostream& operator<< (ostream& OS, TreeNode *BT) {
 
   if(NULL  == BT) return OS;
