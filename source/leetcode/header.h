@@ -26,35 +26,6 @@ using namespace std;
       TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  };
 
-TreeNode* CreateBT(vector<int> &v) {  
-
-    int n = v.size();
-    TreeNode* root = NULL;
-
-    if(0 == n) {
-      root;
-    }
-
-    queue<TreeNode*> Q;
-
-    root = new TreeNode(v[0]);
-    Q.push(root);
-
-    for(int i = 1 ; i < n ; i ++ ) {
-      TreeNode *t = Q.front();
-      if(t->left == NULL) {
-        t->left = new TreeNode(v[i]);
-      } else if(t->right == NULL) {
-        t->right = new TreeNode(v[i]);
-        Q.pop();
-        Q.push(t->left);
-        Q.push(t->right);
-      } 
-    }
-    return root;
-  }
-
-
 template <typename T>
 ostream& operator << (ostream& OS, vector<T> V) {
   for(int i = 0 ; i < V.size(); i ++) {
@@ -63,6 +34,13 @@ ostream& operator << (ostream& OS, vector<T> V) {
   OS << "\n" ;
 }
 
+template <typename T>
+ostream& operator << (ostream& OS, vector<vector<T>> V) {
+  for(int i = 0 ; i < V.size(); i ++) {
+    OS << V[i] << " " ;
+  }
+  OS << "\n" ;
+}
 ostream& operator<< (ostream& OS, TreeNode *BT) {
 
   if(NULL  == BT) return OS;
