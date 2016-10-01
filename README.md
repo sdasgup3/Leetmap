@@ -37,6 +37,18 @@ This page is about solving coding questions mostly asked in interviews.The probl
 vector<vector<bool>> table (n, vector<bool> (n, false)); //avoid using this
 bool table[n][n];
 memset(table,false,sizeof(table));
+
+vector<vector<bool>> G(4);
+vector<char> A = {false, true};
+G[0] = A;
+
+vector<vector<char>> G;
+G.push_back({'1','1','0','0','0'});
+G.push_back({'1','1','0','0','0'});
+
+
+vector<int> D({0, 1, 3, 50, 75});
+
 ```
 - ```std::stack``` access member functions
 ```
@@ -62,7 +74,13 @@ queue::pop();
 ```
 - ```std::string``` member funstions
 ```
+// Creates a substring
 string::substr(start, length); //  Ex. s = "codingpuzzle, s.substr(0,6) gives "coding" 
+
+// Find a subchar / substring starting at an optional position pos
+size_t string::find(string/char, pos = 0)
+  if not found return string::npos
+
 string::compare(string s); // returns 0,-1,1 as strlen function
 string::push_back(char);
 string::append(int n, char c);// append n consecutive copies of c
