@@ -1,30 +1,70 @@
 /* Problem Description
- * Print a matrix in a spriral fashion
+ * Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+
+For example,
+Given the following matrix:
+
+[
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+]
+You should return [1,2,3,6,9,8,7,4,5].
 */
 
 #include"header.h"
 class Solution {
 
 public:
-  void spiral(vector<vector<int>> &M, int rows, int colmn) {  
-    for(int i = 0; i < rows; i++) {
-      int j;
-      if(0 == i%2) {
-        j = 0;
-        for(; j < colmn ; j++) {
-          cout<< M[i][j] << " " ;
+  vector<int> spiralOrder(vector<vector<int>> &matrix) {  
+
+    vector<int> R;
+    r = matrix.size();
+    if(0 == r) {
+      return R;
+    }
+    c = matrix[0].size();
+
+    // define the restrictions
+    int rowB = 0;
+    int rowE = r-1;
+    int colB  = 0;
+    int colE = c -1;
+    int k;
+
+    while(rowB<= rowE && colB <= colE) {
+      // >
+      for( k = colB; k <= colE; k++ ) {
+        R.push_back(matrix[rowB][k]);
+      }
+      rowB++;
+
+      // V
+      for( k = rowB; k <= rowE; k++ ) {
+        R.push_back(matrix[k][colE]);
+      }
+      colE--;
+
+      // <
+      // By tgis time the following cond may have violated
+      if(rowB<=rowE) {
+        for( k = colE; k >= colB; k-- ) {
+          R.push_back(matrix[rowE][k]);
         }
-      } else {
-        j = colmn-1;
-        for(; j >= 0 ; j--) {
-          cout<< M[i][j] << " " ;
-        }
+        rowE--;
       }
 
-      cout <<"\n";
+      // ^
+      if(colB <= colE) {
+      for( k = rowE; k >= rowB; k-- ) {
+        R.push_back(matrix[k][colB]);
+      }
+      colB++;
+      }
     }
   }
 private:
+  int r, c;
 
 };
 
@@ -32,18 +72,22 @@ private:
 int main() {
   Solution S;
 
-  vector<vector<int>> M;
-  
-  vector<int> row1 = {1,2,3,4,5};
-  vector<int> row2 = {6,7,8,9,10};
-  vector<int> row3 = {11,12,13,14,15};
-  vector<int> row4 = {16,17,18,19,20};
-  M.push_back(row1);
-  M.push_back(row2);
-  M.push_back(row3);
-  M.push_back(row4);
+  vector<vector<int>> D;
 
-  S.spiral(M, 4, 5);
+  /*
+  D.push_back({1,   2,  3,    4});
+  D.push_back({14,  15, 16,   5});
+  D.push_back({13,  20, 17,   6});
+  D.push_back({12,   19, 18,   7});
+  D.push_back({11,  10, 9,    8});
+  */
+
+  /*
+  D.push_back({1});
+  D.push_back({3});
+  */
+  D.push_back({2,3});
+  cout << S.spiralOrder(D);
 
   return 0;
 }
