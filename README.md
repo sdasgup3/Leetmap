@@ -35,6 +35,15 @@ This page is about solving coding questions mostly asked in interviews.The probl
 - Using ```std::vector```is too slow than static arrays.
 ```
 vector<vector<bool>> table (n, vector<bool> (n, false)); //avoid using this
+
+After Declaration:
+vector<vector<int>> arr;
+arr.reserve(n);
+for(int i = 0 ; i < s ; i ++) {
+  arr[i].reserve(n);
+}
+
+
 bool table[n][n];
 memset(table,false,sizeof(table));
 
@@ -50,6 +59,8 @@ G.push_back({'1','1','0','0','0'});
 vector<int> D({0, 1, 3, 50, 75});
 
 ```
+
+
 - ```std::stack``` access member functions
 ```
 stack::push()  //pushng
@@ -103,6 +114,21 @@ For comparision: string.compare(string) or string == string
 - ```std::map``` member funstions
 ```
 map::erase(key); 
+
+ map<int, int>::iterator  F = M.begin();
+ map<int, int>::reverse_iterator  R = M.rbegin();
+ F++;
+ F - M.begin(); //ERROR: for bidirectional iterator  - op is not supported, only suported for random access iterator
+ std::distance(F, M.begin());
+
+  auto i = M.find(k - F->first);
+  if(i != M.end()) {
+    ...
+  }
+
+
+
+
 ```
 
 - ```std::unordered_set<T>``` member funstions
