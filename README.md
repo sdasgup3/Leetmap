@@ -93,7 +93,16 @@ class mycomp {
   }
 };
 priority_queue<T, vector<T>, mycomp> Q;
+OR
+mycomp cmp;
+priority_queue<T, vector<T>, decltype(cmp)> Q(cmp);
 
+OR
+typedef bool (*Ty) (T a, T b);
+bool X (T a, T b) {
+//opposite ordering
+}
+priority_queue<T, vector<T>, Ty> Q(X);
 ```
 
 - ```std::string``` member funstions
