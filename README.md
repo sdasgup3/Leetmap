@@ -81,8 +81,21 @@ queue::pop();  //removes the front element as  accessed by front();
 */
 queue::front();
 queue::pop();
+```
+- priority_queue 
+```
+#include<algorithm>
+push/pop/top
+class mycomp {
+  public:
+  bool operator()(T a, T b) { //functors OR Funcion objects;
+    //opposite ordering
+  }
+};
+priority_queue<T, vector<T>, mycomp> Q;
 
 ```
+
 - ```std::string``` member funstions
 ```
 // Creates a substring
