@@ -1,37 +1,5 @@
-This page is about solving coding questions mostly asked in interviews.The problem/analysis/solutions mentioned in the post are categorized and can be used as a quick summary of useful algorithms. 
-
-
-- [Array](http://codingpuzzle.blogspot.com/)
-- [Hash Table](http://codingpuzzle.blogspot.com/)
-- [Linked List](http://codingpuzzle.blogspot.com/)
-- [Math](http://codingpuzzle.blogspot.com/search/label/Math)
-- [Two Pointers](http://codingpuzzle.blogspot.com/)
-- [String](http://codingpuzzle.blogspot.com/)
-- [Divide and Conquer](http://codingpuzzle.blogspot.com/)
-- [Binary Search](http://codingpuzzle.blogspot.com/search/label/binarytree)
-- [Dynamic Programming](http://codingpuzzle.blogspot.com/)
-- [Backtracking](http://codingpuzzle.blogspot.com/)
-- [Stack](http://codingpuzzle.blogspot.com/)
-- [Heap](http://codingpuzzle.blogspot.com/)
-- [Greedy](http://codingpuzzle.blogspot.com/)
-- [Sort](http://codingpuzzle.blogspot.com/)
-- [Bit Manipulation](http://codingpuzzle.blogspot.com/)
-- [Tree](http://codingpuzzle.blogspot.com/)
-- [Depth-first Search](http://codingpuzzle.blogspot.com/)
-- [Breadth-first Search](http://codingpuzzle.blogspot.com/)
-- [Union Find](http://codingpuzzle.blogspot.com/)
-- [Graph](http://codingpuzzle.blogspot.com/)
-- [Design](http://codingpuzzle.blogspot.com/)
-- [Topological Sort](http://codingpuzzle.blogspot.com/)
-- [Trie](http://codingpuzzle.blogspot.com/)
-- [Binary Indexed Tree](http://codingpuzzle.blogspot.com/)
-- [Segment Tree](http://codingpuzzle.blogspot.com/)
-- [Binary Search Tree](http://codingpuzzle.blogspot.com/)
-- [Recursion](http://codingpuzzle.blogspot.com/)
-- [Brainteaser](http://codingpuzzle.blogspot.com/)
-- [Memoization](http://codingpuzzle.blogspot.com/)
-
 ### Cheatsheet
+
 - Using ```std::vector```is too slow than static arrays.
 ```
 vector<vector<bool>> table (n, vector<bool> (n, false)); //avoid using this
@@ -59,7 +27,6 @@ G.push_back({'1','1','0','0','0'});
 vector<int> D({0, 1, 3, 50, 75});
 
 ```
-
 
 - ```std::stack``` access member functions
 ```
@@ -106,32 +73,40 @@ priority_queue<T, vector<T>, Ty> Q(X);
 ```
 
 - ```std::string``` member funstions
-```
-// Creates a substring
-string::substr(start, length); //  Ex. s = "codingpuzzle, s.substr(0,6) gives "coding" 
+  - string::substring
+    ```
+    // Creates a substring
+    string::substr(start, length); //  Ex. s = "codingpuzzle, s.substr(0,6) gives "coding" 
+    ```
+  - string::find
+    ```
+    // Find a subchar / substring starting at an optional position pos
+    size_t string::find(string/char, pos = 0)
+    
+    Returns: The position of the first character of the first match.
+    If no matches were found, the function returns string::npos.
 
-// Find a subchar / substring starting at an optional position pos
-size_t string::find(string/char, pos = 0)
-  if not found return string::npos
-
-string::compare(string s); // returns 0,-1,1 as strlen function
-string::push_back(char);
-string::append(int n, char c);// append n consecutive copies of c
-string::append(string/const char*);
-res = s[0] + to_string(len-2) + s[len-1]; // Is valid as there exist a string class friend operator '+' to handle each pair
+    size_t is an unsigned integral type (the same as member type string::size_type).
+    ```
+  - string::compare
+    ```
+    string::compare(string s); // returns 0,-1,1 as strlen function
+    string::push_back(char);
+    string::append(int n, char c);// append n consecutive copies of c
+    string::append(string/const char*);
+    res = s[0] + to_string(len-2) + s[len-1]; // Is valid as there exist a string class friend operator '+' to handle each pair
                                           //(w.r.t left assocoativity)
-For comparision: string.compare(string) or string == string  
-
+    For comparision: string.compare(string) or string == string  
+     ``` 
   - Splitting based on a dilimiter
-#include<sstream>
-#include<iterator>
-  istringstream buffer(str);
+    ```
+    #include<sstream>
+    #include<iterator>
+    istringstream buffer(str);
     istream_iterator<string> begin(buffer);
     istream_iterator<string> end;
     vector<string> V(begin, end);
-
-
-```
+    ```
 
 - ```std::map``` member funstions
 ```
@@ -158,3 +133,37 @@ map::erase(key);
 unordered_set::insert(<T>)
 unordered_set::count(<T>)
 ```
+
+
+This page is about solving coding questions mostly asked in interviews.The problem/analysis/solutions mentioned in the post are categorized and can be used as a quick summary of useful algorithms. 
+
+
+- [Array](http://codingpuzzle.blogspot.com/)
+- [Hash Table](http://codingpuzzle.blogspot.com/)
+- [Linked List](http://codingpuzzle.blogspot.com/)
+- [Math](http://codingpuzzle.blogspot.com/search/label/Math)
+- [Two Pointers](http://codingpuzzle.blogspot.com/)
+- [String](http://codingpuzzle.blogspot.com/)
+- [Divide and Conquer](http://codingpuzzle.blogspot.com/)
+- [Binary Search](http://codingpuzzle.blogspot.com/search/label/binarytree)
+- [Dynamic Programming](http://codingpuzzle.blogspot.com/)
+- [Backtracking](http://codingpuzzle.blogspot.com/)
+- [Stack](http://codingpuzzle.blogspot.com/)
+- [Heap](http://codingpuzzle.blogspot.com/)
+- [Greedy](http://codingpuzzle.blogspot.com/)
+- [Sort](http://codingpuzzle.blogspot.com/)
+- [Bit Manipulation](http://codingpuzzle.blogspot.com/)
+- [Tree](http://codingpuzzle.blogspot.com/)
+- [Depth-first Search](http://codingpuzzle.blogspot.com/)
+- [Breadth-first Search](http://codingpuzzle.blogspot.com/)
+- [Union Find](http://codingpuzzle.blogspot.com/)
+- [Graph](http://codingpuzzle.blogspot.com/)
+- [Design](http://codingpuzzle.blogspot.com/)
+- [Topological Sort](http://codingpuzzle.blogspot.com/)
+- [Trie](http://codingpuzzle.blogspot.com/)
+- [Binary Indexed Tree](http://codingpuzzle.blogspot.com/)
+- [Segment Tree](http://codingpuzzle.blogspot.com/)
+- [Binary Search Tree](http://codingpuzzle.blogspot.com/)
+- [Recursion](http://codingpuzzle.blogspot.com/)
+- [Brainteaser](http://codingpuzzle.blogspot.com/)
+- [Memoization](http://codingpuzzle.blogspot.com/)
