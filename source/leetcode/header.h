@@ -37,10 +37,16 @@ ostream& operator << (ostream& OS, vector<T> V) {
 }
 
 template <typename T>
-ostream& operator << (ostream& OS, vector<vector<T>> V) {
+ostream& operator << (ostream& OS, vector<vector<T> > V) {
   for(int i = 0 ; i < V.size(); i ++) {
     OS << V[i] << " " ;
   }
+  OS << "\n" ;
+}
+
+template <typename T>
+ostream& operator << (ostream& OS, pair<T,T>  P) {
+  OS << P.first << " " << P.second ;
   OS << "\n" ;
 }
 ostream& operator << (ostream& OS, ListNode* root) {
