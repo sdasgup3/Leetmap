@@ -64,7 +64,7 @@ public:
     }
   }
 
-  string getHint(string secret, string guess) {
+  string getHint1(string secret, string guess) {
 
     //Create a map from the values of secret to its posn
     unordered_map<char, vector<int>*> M;
@@ -121,6 +121,49 @@ public:
 
     return to_string(bulls) + "A" + to_string(cows) + "B";
   }
+
+  string getHint(string secret, string guess) {
+
+    //Create a map from the values of secret to # of its occurance
+    unordered_map<char, int> M;
+    int len = guess.length();
+
+    vector<int> guess_posn;
+
+    int bulls=0, cows=0;
+
+    for(char c : secret) {
+      M[c]++;
+    }
+
+    // Find the Bulls
+    for(int i = 0 ; i < len ; i++) {
+      if(secret[i] == guess[i]) {
+        bulls ++;
+        M[secret[i]] --;
+        guess_posn.push_back(i);
+      }
+    }
+    
+    int s = guess_posn.size();
+    //Now M contains on those entries which could match only for cows
+    //Find the Cows
+    for(int i = 0, k = 0 ; i < len ; i++) {
+      char c = guess[i];
+      if(k < s && i == guess_posn[k]) {
+        k++;
+        continue;
+      }
+
+      //cout << c << " " << M.count(c) << " " << guess_posn[0] << "\n";
+      if(0 != M.count(c) && M[c] > 0) {
+        cows++;
+        M[c]--;
+      }
+    }
+
+    return to_string(bulls) + "A" + to_string(cows) + "B";
+  }
 private:
 
 };
@@ -130,6 +173,8 @@ int main() {
   Solution S;
 
   cout << S.getHint("1807", "7810");
+  cout << S.getHint("1123", "0111");
+
 
   return 0;
 }
