@@ -73,6 +73,12 @@ priority_queue<T, vector<T>, Ty> Q(X);
 ```
 
 - ```std::string``` member funstions
+  - string::string
+  ```
+  string t(26,0);
+  t[0]++;
+  
+  ```
   - string::substring
     ```
     // Creates a substring
