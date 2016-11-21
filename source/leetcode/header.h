@@ -24,8 +24,11 @@ using namespace std;
       int val;
       TreeNode *left;
       TreeNode *right;
-      TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-      TreeNode(int x, TreeNode* l, TreeNode* r) : val(x), left(l), right(r) {}
+      int count; // leftsubtree + 1 + rightsubtree
+      TreeNode(int x) : val(x), left(NULL), right(NULL), count(0) {}
+      TreeNode(int x, TreeNode* l, TreeNode* r) : val(x), left(l), right(r), count(0) {}
+      TreeNode(int x, TreeNode* l, TreeNode* r, int c) : val(x), left(l), right(r), count(c) {}
+    public:
  };
 
 template <typename T>

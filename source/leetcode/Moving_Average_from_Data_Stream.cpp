@@ -16,6 +16,40 @@ m.next(5) = (10 + 3 + 5) / 3
 #include<queue>
 using namespace std;
 
+class MovingAverage1 {
+
+    private:
+    vector<int> V;
+    int posn, w, s;
+    
+    double average;
+    
+public:
+    /** Initialize your data structure here. */
+    MovingAverage(int size) {
+        V.reserve(size);
+        posn = 0;
+        average = 0;
+        w = size;
+        s = 0;
+    }
+    
+    double next(int val) {
+        
+        if(s < w) {
+            average = (average*s + val)/ (s +1);
+            s++;
+        } else {
+            average = (average*s - V[posn] + val)/ (w);
+            
+        }
+        V[posn] = val;
+        posn  = (posn+1)%w;
+        
+        return average;
+    }
+};
+
 class MovingAverage {
 
   private:

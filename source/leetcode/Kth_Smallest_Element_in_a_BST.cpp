@@ -67,26 +67,89 @@ public:
     }
           return result;
   }
-  int kthSmallest(TreeNode* root, int k) {
+  int kthSmallest1(TreeNode* root, int k) {
      return helper(root, k);
   }
+
+
+
+
+
+
+
+  void fill(TreeNode *root) {
+    while(root) {
+      S.push(root);
+      root = root->left;
+    }
+  }
+  int kthSmallest(TreeNode *root, int k) {
+    fill(root);
+    int count = 0 ;
+    while(1) {
+      TreeNode *t = S.top();
+      S.pop();
+      count ++;
+      fill(t->right);
+      if(k == count) {
+        return t->val;
+      }
+    }
+  }
+
+  int kthSmallest_follow_up(TreeNode *root, int k) {
+    
+    while(1) {
+      int l_c = 0;
+      if(root->left) {
+        l_c = root->left->count;
+      }
+      if(k == l_c + 1) {
+        return root->val;
+      }
+
+      if(k > (l_c +1) ) {
+        k -= (l_c+1);
+        root = root->right;
+      } else {
+        root = root->left;
+      }
+    }
+  }
 private:
+    Stack<TreeNode*> S;
 
 };
 
+void bst_add(TreeNode **root, int n) {
+    if(NULL == *root) {
+      *root = new TreeNode(n, NULL, NULL, 1);
+     return;
+    } 
+
+    (*root)->count++;
+    if(n > (*root)->val ) {
+      bst_add(&((*root)->right), n);
+    } else {
+      bst_add(&((*root)->left), n);
+    }
+}
+
 int main() {
   Solution S;
-  TreeNode *T1 = new TreeNode(1, NULL, NULL);
-  TreeNode *T3 = new TreeNode(3, NULL, NULL);
-  TreeNode *T5 = new TreeNode(5, NULL, NULL);
-  TreeNode *T7 = new TreeNode(7, NULL, NULL);
-  TreeNode *T2 = new TreeNode(2, T1, T3);
-  TreeNode *T6 = new TreeNode(6, T5, T7);
-  TreeNode *T4 = new TreeNode(4, T2, T6);
-
-
-
-  cout << S.kthSmallest(T4, 3);
+  TreeNode* root = NULL;
+  bst_add(&root, 4);
+  bst_add(&root, 2);
+  bst_add(&root, 6);
+  bst_add(&root, 1);
+  bst_add(&root, 3);
+  bst_add(&root, 5);
+  bst_add(&root, 7);
+  
+  for(int i = 1; i <= 7 ; i++) {
+    cout << S.kthSmallest(root, i) << "\n";
+    cout << S.kthSmallest_follow_up(root, i) << "\n";
+  }
 
   return 0;
 }
