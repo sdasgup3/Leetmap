@@ -95,9 +95,11 @@ priority_queue<T, vector<T>, Ty> Q(X);
     size_t is an unsigned integral type (the same as member type string::size_type).
     ```
   - string::compare
+  
     ```
     string::compare(string s); // returns 0,-1,1 as strlen function
     string::push_back(char);
+    string::pob_back();
     string::append(int n, char c);// append n consecutive copies of c
     string::append(string/const char*);
     res = s[0] + to_string(len-2) + s[len-1]; // Is valid as there exist a string class friend operator '+' to handle each pair
