@@ -1,3 +1,12 @@
+### Tips
+  - If we know the size of the input that we intend to store in a map, go for an array instead
+  ```
+  Say we need to know the frequency of each char in a string and we know the string is composed of 256 chars max
+  so instead of doing M[c] ++ , do V[c] ++
+  
+  ```
+
+
 ### Cheatsheet
 
 - Using ```std::vector```is too slow than static arrays.
