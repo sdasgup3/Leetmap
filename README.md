@@ -8,7 +8,12 @@
 
 
 ### Cheatsheet
-
+- Using arr or vector to initiaze another vector
+```
+  int arr[] = {1,2,3};
+  vector<int> R(arr, arr + sizeof(arr)/sizeof(arr[0]));
+  vector<int> R(V.begin(), V.end()); // Note the last element is always excluded
+```
 - Using ```std::vector```is too slow than static arrays.
 ```
 vector<vector<bool>> table (n, vector<bool> (n, false)); //avoid using this
