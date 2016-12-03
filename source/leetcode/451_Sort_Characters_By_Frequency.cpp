@@ -35,56 +35,93 @@ Explanation:
 "bbaA" is also a valid answer, but "Aabb" is incorrect.
 Note that 'A' and 'a' are treated as two different characters.
 */
+
 #include"header.h"
 
-class Solution {
+
+class Solution1 {
   private:
   typedef pair<char, int> P;
 public:
-  bool static cmp_func(P a, P b) {
-  return a.second > b.second;
-}
 
     string frequencySort(string s) {
       int l = s.length();
       string res;
       if(l<=2) return s; 
-
-      vector<pair<char, int>> V;
+      
       unordered_map<char, int> M;
+
       for(char c: s) {
         M[c] ++;
       }
        
-      for(P p : M) {
-        V.push_back(p);
+      sort(s.begin(),  s.end(), 
+          [&](char a, char b) {
+              if(M[a] > M[b]) 
+                return true;
+
+              if(M[a] == M[b]) {
+                return a < b;
+              }
+
+              return false;
+  
+            }
+          );
+
+      return s;
+    }
+};
+
+class Solution {
+  private:
+  typedef pair<char, int> P;
+public:
+
+    string frequencySort(string s) {
+      int l = s.length();
+      string res("");
+      if(l<=2) return s; 
+      
+      unordered_map<char, int> M;
+
+      for(char c: s) {
+        M[c] ++;
+      }
+
+      vector<string> B(l+1, "");
+
+      for(auto p : M) {
+        char c = p.first;
+        int n = p.second;
+        B[n].append(n, c);
+      }
+
+      for(int i = l ; i >= 0 ; i--) {
+          res += B[i];
       }
        
-
-      sort(V.begin(),  V.end(), cmp_func);
-
-      for(P p : V) {
-        for(int i = 0 ; i < p.second; i++) {
-          res.push_back(p.first);
-        }
-      }
 
       return res;
     }
 };
 
 
+
+
 int main() {
   Solution S;
 
   string s("tree");
-  cout << S.frequencySort(s) << "\n";
+  cout << s << " " << S.frequencySort(s) << "\n";
 
   s = string("cccaaa");
-  cout << S.frequencySort(s) << "\n";
+  cout << s << " " << S.frequencySort(s) << "\n";
 
   s = string("Aabb");
-  cout << S.frequencySort(s) << "\n";
+  cout << s << " " << S.frequencySort(s) << "\n";
 
+  s = string("3232");
+  cout << s << " " << S.frequencySort(s) << "\n";
   return 0;
 }
