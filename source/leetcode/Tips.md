@@ -1,3 +1,80 @@
+## Union Find
+
+A union–find data structure or merge–find set, is a data structure that keeps
+track of a set of elements partitioned into a number of disjoint
+(nonoverlapping) subsets. It supports following useful operations:
+```
+ function MakeSet(x)
+     x.parent := x
+ function Find(x)
+     if x.parent == x
+        return x
+     else
+        return Find(x.parent)
+ function Union(x, y)
+     xRoot := Find(x)
+     yRoot := Find(y)
+     xRoot.parent := yRoot
+```
+Note that in the initial set is on size n, each union reduces the set size by -1
+so after m union operations, the final number of sets = n  - m
+
+### 323. Number of Connected Components in an Undirected Graph
+```
+n = 5
+E = 
+     0\          3
+     | \         |
+     1 -2        4
+```
+E = [(0-1)(2-1)(2-1)(3-4)]
+
+MakeSet(x) = x
+         0 1 2 3 4
+arr[] =  0 1 2 3 4
+
+edge 0-1:
+rep\_x = Find(0)
+rep\_y = Find(1)
+
+as they are diff
+  rep\_x = Find(0)
+  rep\_y = Find(1)
+  rep\_y.parent = rep\_x
+  number of connected componets = 5 - 1
+
+         0 1 2 3 4
+arr[] =  0 0 2 3 4
+
+edge 2-1:
+rep of 2 = 2
+rep of 1 = 0
+
+as they are diff
+  rep\_x = 2
+  rep\_y = 0
+  rep\_y.parent = 2
+  number of connected componets = 3
+
+         0 1 2 3 4
+arr[] =  2 0 2 3 4
+
+edge 2-0:
+rep of 2 = 2
+rep of 0 = 2
+
+they are same
+
+edge 3-4:
+...
+number of connected componets = 2
+
+### 261 Graph Valid Tree
+Return true is a graph is a tree else return false
+While doing union find, if an edge has both its endpoints have the same rep, then return false
+Also at the end the # connected components shouls be 1
+
+
 ## Combinatorics
 
 ### 357. Count Numbers with Unique Digits
@@ -91,6 +168,14 @@ Index:          0 1 2       3
 counting arr:   0 a bbdd    ccc
 
 Now depending on sorting order traverse this counting arr
+
+## Array
+
+### 189. Rotate Array
+Rotate arr[n] by k elements
+reverse first n-k
+reverse last k
+reverse first n
 
 
 ## General

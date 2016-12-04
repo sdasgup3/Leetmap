@@ -39,7 +39,7 @@ Note that 'A' and 'a' are treated as two different characters.
 #include"header.h"
 
 
-class Solution1 {
+class Solution {
   private:
   typedef pair<char, int> P;
 public:
@@ -60,9 +60,9 @@ public:
               if(M[a] > M[b]) 
                 return true;
 
-              if(M[a] == M[b]) {
-                return a < b;
-              }
+         //     if(M[a] == M[b]) {
+         //       return a < b;
+         //     }
 
               return false;
   
@@ -73,7 +73,7 @@ public:
     }
 };
 
-class Solution {
+class Solution1 {
   private:
   typedef pair<char, int> P;
 public:
@@ -121,7 +121,7 @@ int main() {
   s = string("Aabb");
   cout << s << " " << S.frequencySort(s) << "\n";
 
-  s = string("3232");
+  s = string("3232444");
   cout << s << " " << S.frequencySort(s) << "\n";
   return 0;
 }
