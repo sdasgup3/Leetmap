@@ -31,8 +31,8 @@ So we have to find # unique 1 digits (10) + # unique 2 digits (9*9) + # unique 3
     1 1 1  Count(3) + 1
 
       ```
-## Sorting
 
+## Sorting
 ### sort function
 #### 451. Sort Characters By Frequency
 
