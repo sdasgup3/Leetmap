@@ -1,11 +1,11 @@
-#### Combinatorics
+## Combinatorics
 
 ### 357. Count Numbers with Unique Digits
 Count unique digits x  in therange from 0 <=  x < 10^n, where n  is given 
 n=3
 So we have to find # unique 1 digits (10) + # unique 2 digits (9*9) + # unique 3 digits (9*9*8)
 
-#### Bits
+## Bits
   - Count the nums of 1's  in N
     - Method 1
 
@@ -31,11 +31,10 @@ So we have to find # unique 1 digits (10) + # unique 2 digits (9*9) + # unique 3
     1 1 1  Count(3) + 1
 
       ```
-#### Sorting
+## Sorting
 
-### 451. Sort Characters By Frequency
-### 347. Top K Frequent Elements
-## Using sort function
+### sort function
+#### 451. Sort Characters By Frequency
 
 The sort function on argument a and b returns true if a is less than b in the strct ordering. Here we can have the frequency counted in a map and use that map in sorting function.
 
@@ -69,7 +68,11 @@ sortFn(char a, char b) {
 }
 ```
 
-## Using counting sort
+### Using counting sort
+
+#### 451. Sort Characters By Frequency
+#### 347. Top K Frequent Elements
+
 arr[] = bcaccbdd
 
 M[b] = 2
@@ -90,7 +93,7 @@ counting arr:   0 a bbdd    ccc
 Now depending on sorting order traverse this counting arr
 
 
-#### General
+## General
 
 ### Counting sort
 Only applicable when we know the max length of the sorting key
