@@ -1,7 +1,10 @@
 130_Surrounded_Regions.cpp
 136_Single_Number.cpp
 137_Single_NumberII.cpp
+151_Reverse_Words_in_a_String.cpp
 157_Read_N_Characters_Given_Read4.cpp
+17Letter_Combinations_of_a_Phone_Number.cpp
+186_Reverse_Words_in_a_String_II.cpp
 189_Rotate_Array.cpp
 200_Number_Of_Island.cpp
 259_3Sum_Smaller.cpp
@@ -19,6 +22,7 @@
 449_Group_Anagrams.cpp
 451_Sort_Characters_By_Frequency.cpp
 463_Island_Perimeter.cpp
+61_Rotate_List.cpp
 74_Search_a_2D_Matrix.cpp
 Add_Binary.cpp
 a.out

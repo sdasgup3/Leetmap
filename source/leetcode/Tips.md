@@ -177,6 +177,19 @@ reverse first n-k
 reverse last k
 reverse first n
 
+## List  
+### 61. Rotate List
+[1,2,3,4,5,6,7]
+roate right by 3 : [5,6,7, 1,2,3,4] 
+
+make a cicle
+        1 2 3 
+       7     4 
+         6 5
+
+traverse from head till 7 - 3 = 4th node and do 4->next = null and 5 is the new head 
+         
+Related : rotae left by 4 = roate right by 7 - 4 = 3 =   [5,6,7, 1,2,3,4]
 
 ## General
 
@@ -195,6 +208,7 @@ Prefixadd:      0 1 2 4
 for x : arr
   oupur\_arr[Prefixadd[x]] = x
   Prefixadd[x] --;
+
 
 
 

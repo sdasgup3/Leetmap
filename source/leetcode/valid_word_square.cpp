@@ -3,7 +3,7 @@
 
 #include"header.h"
 
-class Solution {
+class Solution1 {
 public:
     bool validWordSquare(vector<string>& words) {
         //find max row/coln
@@ -28,6 +28,27 @@ public:
                 }
             }
             if(0 != a.compare(b)) return false;
+        }
+        
+        return true;
+    }
+};
+
+  class Solution {
+public:
+    bool validWordSquare(vector<string>& words) {
+        int r = words.size();
+        if(0 == r) return false;
+        
+        for(int i = 0 ; i < r ; i++) {
+            for(int j = 0; j < words[i].size(); j++) {
+                if(j >= r ||  i >= words[j].size()) {
+                    return false;
+                }
+                if(words[i][j] != words[j][i]) {
+                    return false;
+                }
+            }
         }
         
         return true;
