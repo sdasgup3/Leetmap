@@ -16,11 +16,12 @@
 ```
 - Using ```std::vector```is too slow than static arrays.
 ```
+NOTE: reserve does not change the size!! resize does
 vector<vector<bool>> table (n, vector<bool> (n, false)); //avoid using this
 
 After Declaration:
 vector<vector<int>> arr;
-arr.reserve(n);
+arr.reserve(n); 
 for(int i = 0 ; i < s ; i ++) {
   arr[i].reserve(n);
 }
