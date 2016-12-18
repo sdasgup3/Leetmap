@@ -1,7 +1,10 @@
 104_Maximum_Depth_of_Binary_Tree.cpp
+114.Flatten_Binary_Tree_to_Linked_List.cpp
 130_Surrounded_Regions.cpp
 136_Single_Number.cpp
 137_Single_NumberII.cpp
+144_Binary_Tree_Preorder_Traversal.cpp
+145_inary_Tree_Postorder_Traversal.cpp
 151_Reverse_Words_in_a_String.cpp
 157_Read_N_Characters_Given_Read4.cpp
 173_Binary_Search_Tree_Iterator.cpp
@@ -12,10 +15,12 @@
 207_Course_Schedule.cpp
 226_Invert_Binary_Tree.cpp
 235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree.cpp
+236_Lowest_Common_Ancestor_of_a_Binary_Tree.cpp
 259_3Sum_Smaller.cpp
 261_Graph_Valid_Tree.cpp
 268_Missing_Number.cpp
 277_Find_the_Celebrity.cpp
+285_Inorder_Successor_in_BST.cpp
 286_Walls_Gates.cpp
 296_Best_Meeting_Point.cpp
 299_Bulls_and_Cows.cpp
@@ -30,9 +35,12 @@
 453_Minimum_Moves_to_Equal_Array_Elements.cpp
 462_Minimum_Moves_to_Equal_Array_Elements_II.cpp
 463_Island_Perimeter.cpp
+475_Heaters.cpp
 61_Rotate_List.cpp
 74_Search_a_2D_Matrix.cpp
 96_Unique_Binary_Search_Trees.cpp
+98_Validate_Binary_Search_Tree.cpp
+99_Recover_Binary_Search_Tree.cpp
 Add_Binary.cpp
 Balanced_Binary_Tree.cpp
 Binary_Tree_Level_Order_Traversal_II.cpp
@@ -87,7 +95,6 @@ Permutation.cpp
 Plus_One.cpp
 Pow_x_n.cpp
 Print_All_Palindrom.cpp
-README.md
 Range_Sum_Query_Immutable.cpp
 Ransom_Note.cpp
 Recontruct_Itinarary.cpp
@@ -105,7 +112,6 @@ Sum_Of_Left_Leaves.cpp
 Sum_Root_to_Leaf_Numbers.cpp
 Summary_Ranges.cpp
 Symmetric_Tree.cpp
-Tips.md
 Trapping_Rain_Water.cpp
 Two_Sum.cpp
 Two_Sum_2_DS_Design.cpp
@@ -117,11 +123,7 @@ Word_Patttern.cpp
 ZigZag_Conversion.cpp
 Zigzag_Iterator.cpp
 Zigzag_Matrix.cpp
-a.out
 constructs.cpp
-filelist.txt
-header.h
-log
 nim.cpp
 peek_Iterator.cpp
 template.cpp

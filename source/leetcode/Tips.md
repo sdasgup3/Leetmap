@@ -1,3 +1,22 @@
+### 296. Best Meeting Point
+Find median of a 2D grid  = (median of rows, median of colms )
+
+### 453. Minimum Moves to Equal Array Elements
+arr[] = [1,2,3]
+find min numberof moves "incr all except one" to make all elemens equal
+
+incr all execpt one == (A)decr the one that you dnt want to incr and then (B)incr all
+
+123 -->  (A) 122 + (B) 233 --> (A)232 + (B)343 -> (A)333 + (B)444 
+
+number of moves == (A) + (B) == (A) == number of moves to decr one 
+
+to make all equal all the numbers need to be decr to the min of all of them
+
+### 462. Minimum Moves to Equal Array Elements II
+Now u have +1 and -1 as moves for any element applying one at a time
+Idea is to find the median
+
 ## Union Find
 
 A union–find data structure or merge–find set, is a data structure that keeps
@@ -191,7 +210,92 @@ traverse from head till 7 - 3 = 4th node and do 4->next = null and 5 is the new 
          
 Related : rotae left by 4 = roate right by 7 - 4 = 3 =   [5,6,7, 1,2,3,4]
 
+## 96. Unique Binary Search Trees
+Let m = n and F[m]: Num of unique BST possible with n number of nodes (1.2.3....n)
+for m = n+1
+  F(m) = F(m-1)*F[0] + F[m-2]*F(1) + ... + F(0)F[m-1]
+
+  n = 1: 1
+  n = 2:   1  (1,0)   2 (0,1) 
+            \        /
+            2       1 
+  
+  n=3:      1         1         (2,0)
+              \2       \ 3
+               \        /
+                 3     2
+
+               2  (1,1)
+               /\
+              1  3  
+                  
+            2 more for (0,2)
+            
+
+
+
 ## General
+
+### Binary Search
+Consider the following binary search for finding the nearest member of hearter to K;
+  ```
+ int find\_nearest\_heater(vector<int> &heaters, int first, int last, int k) {
+
+      while(first < last) {
+        if(last == first  +1) {
+          return abs(k - heaters[first]) < abs(heaters[last] - k) ? heaters[first] : heaters[last];
+        }
+        int mid = first + (last - first)/2;
+        if(heaters[mid] == k) {
+          return heaters[mid];
+
+        } else if(heaters[mid] > k) {
+          last = mid;
+        } else {
+          first = mid;
+        }
+      }
+      
+      return heaters[first];
+    }
+```
+Here when we do first = mid or mast = mid as opposted to m+1 or m-1 resp; then there are chances
+of inf loop
+
+Index: 0 1 2
+first = 0 
+last 2
+mid = 1
+
+first = 1
+last = 2
+mid = 1
+
+first = 1
+last = 2
+mid = 1
+........ loop
+
+But on the lower side:
+Index: 0 1 2
+first = 0 
+last 2
+mid = 1
+
+first = 0
+last = 1
+mid = 0
+
+first = 0
+last = 0
+mid = 0
+........ the main loop break unless we write first <= last
+
+With first = m+1 or last = mid -1 ; the loop will break in either cases if first < last or first <= last
+
+
+
+
 
 ### Counting sort
 Only applicable when we know the max length of the sorting key
@@ -211,4 +315,113 @@ for x : arr
 
 
 
+### Find median of 2D grid 
+  (median of rows, median of cols) may not be a member of the pints set to begin with
+  P = [(1,2) , (2,3) , (3,1)]
+  med\_r = 2 
+  med\_c = 2 
+  but no points like 2,2
 
+
+### BST
+  left <= root < right
+
+### DFS
+  dfs on graph
+
+  ```
+dfs(int node) {
+  visited[node] = true;
+  for (ngh : neighbors[node]) {
+    dfs(ngh);
+  }
+  dfs\_num[node] = total\_count --;
+
+  dfs(0);
+```
+  While doing dfs on Tree we do not ned the visited info as there is no way to
+  arrive the same node using 2 different paths
+
+### Tree
+  - Flatten a tree into a linked list
+  ```
+         1
+        / \
+       2   5
+      / \   \
+     3   4   6
+
+   while(root)  
+     root_l = root->left;
+     root_r = root->right;
+
+     root->left = NULL;
+     root->right = root_l;
+     last = find_the_rightmost_non_null_node(root_l);
+     last->right = root_r;
+      
+     root= root->right;
+
+  ```
+
+
+### REcursion
+
+- The following is a solution to return a bool in a particular scenaruio of recurtion.
+The expection is only we get a false we should stop the recuion and return
+  One solution: to use a global value res which will store a bool value;
+
+    ```
+    class Solution {
+private:
+    TreeNode *prev;
+    bool res;
+  public:
+    void traverse(...) {
+      traverse(...);
+      if(res == true) { // is res is already false, do not revert it
+        //some computaton that might evaluate a bool
+        res = ...
+      }
+      traverse(..);
+    }
+
+    bool func(arg) {
+      //it has to return bool
+      bool = true;
+      traverse(...);    
+
+      return res;
+    }
+};
+```
+  Other solution: 
+
+    ```
+    class Solution {
+private:
+    TreeNode *prev;
+    bool res;
+  public:
+    void traverse(...) {
+      if(!traverse(...)) {
+        return false;
+      }
+      //some computaton that might evaluate a bool
+      res = ...
+      return res;
+      if(!traverse(..)) {
+        return false;
+      }
+
+      return true;
+    }
+
+    bool func(arg) {
+      //it has to return bool
+      bool = true;
+      traverse(...);    
+
+      return res;
+    }
+};

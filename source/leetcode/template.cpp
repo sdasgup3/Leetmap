@@ -1,4 +1,10 @@
-/* Problem Description
+/* 
+ * Problem Description
+ *
+ *
+ *
+ *
+ * Solution
 */
 
 #include"header.h"
