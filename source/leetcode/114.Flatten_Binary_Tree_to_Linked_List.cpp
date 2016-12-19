@@ -22,7 +22,7 @@ The flattened tree should look like:
             \
              6
   Solution:
-       1
+         1
         / \
        2   5
       / \   \

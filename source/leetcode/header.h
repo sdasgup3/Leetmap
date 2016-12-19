@@ -20,6 +20,13 @@ using namespace std;
       ListNode(int x) : val(x), next(NULL) {}
   };
 
+  struct TreeLinkNode {
+   int val;
+   TreeLinkNode *left, *right, *next;
+   TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+   TreeLinkNode(int xx, TreeLinkNode* x, TreeLinkNode *y, TreeLinkNode *z) : val(xx), left(x), right(y), next(z) {}
+  };
+
   struct TreeNode {
       int val;
       TreeNode *left;
