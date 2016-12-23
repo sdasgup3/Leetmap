@@ -36,8 +36,11 @@ G[0] = A;
 
 vector<vector<char>> G;
 G.push_back({'1','1','0','0','0'});
-G.push_back({'1','1','0','0','0'});
 
+OR
+
+vector<vector<char>> G[1];
+G[0] = vector<char>({'1','1','0','0','0'});
 
 vector<int> D({0, 1, 3, 50, 75});
 
