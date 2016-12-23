@@ -8,6 +8,15 @@
 
 
 ### Cheatsheet
+- stoi
+  ```
+  int stoi (const string&  str, size_t* idx = 0, int base = 10);
+  
+  Convert string to integer
+  Parses str interpreting its content as an integral number of the specified base, which is returned as an int value.
+
+  If idx is not a null pointer, the function also sets the value of idx to the position of the first character in str after the number.  
+  ```
 - Using arr or vector to initiaze another vector
 ```
   int arr[] = {1,2,3};
