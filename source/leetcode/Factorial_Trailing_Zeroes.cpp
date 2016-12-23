@@ -3,7 +3,6 @@ Given an integer n, return the number of trailing zeroes in n!.
 Here we need to find the number of factors of 2s and 5s. and the result is min of those numbers
 == number of 5s
 
-Q
 
 * 
 */
