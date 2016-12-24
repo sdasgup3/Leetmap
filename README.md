@@ -53,6 +53,9 @@ G[0] = vector<char>({'1','1','0','0','0'});
 
 vector<int> D({0, 1, 3, 50, 75});
 
+insert pair in vecor
+V.push_back({e1, e2});
+
 ```
 
 - ```std::stack``` access member functions
