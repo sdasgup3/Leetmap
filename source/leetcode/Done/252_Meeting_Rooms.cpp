@@ -8,6 +8,9 @@ Given [[0, 30],[5, 10],[15, 20]],
 return false. 
 Given [[0, 5],[5, 10]
 return true. 
+
+Tags:
+Sort
 */
 
 #include<iostream>
