@@ -5,6 +5,7 @@
   so instead of doing M[c] ++ , do V[c] ++
   
   ```
+  - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
 
 
 ### Cheatsheet
