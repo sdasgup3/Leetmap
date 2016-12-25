@@ -9,7 +9,24 @@ return false.
 Given [[0, 5],[5, 10]
 return true. 
 
-Tags:
+ *Solution
+ Here is all the intervals are disjoint(D) then only he can attend all the classs
+
+ The only case to check is
+ a1 b2...b1 b2...c1 c2
+
+ Why sorting required:
+ if D(I1, I2) == true and D(I2, I3) == true !=> D(I1, I3) = true
+
+ (1 10) (11 20) (2 5)
+
+ If the intervals are sorted, for intervals I1, I2, I3
+
+ if I2.start >= I1.end ==> I3.start > I1.end
+
+ The above is not ensured if the intervals are not sorted by start times
+
+*Tags:
 Sort
 */
 
