@@ -101,6 +101,11 @@ bool X (T a, T b) {
 //opposite ordering
 }
 priority_queue<T, vector<T>, Ty> Q(X);
+
+OR
+auto cmp = [](T a, T b) {} ;
+priority_queue<T, vector<T>, decltype(cmp)> Q(cmp);
+
 ```
 
 - ```std::string``` member funstions
