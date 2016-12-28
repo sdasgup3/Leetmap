@@ -18,14 +18,18 @@
 
   If idx is not a null pointer, the function also sets the value of idx to the position of the first character in str after the number.  
   ```
-- Using arr or vector to initiaze another vector
-```
+  
+- Vector
+  - vector::insert(iterator, value)
+    - you dont need to resize the array
+  - Using arr or vector to initiaze another vector
+  ```
   int arr[] = {1,2,3};
   vector<int> R(arr, arr + sizeof(arr)/sizeof(arr[0]));
   vector<int> R(V.begin(), V.end()); // Note the last element is always excluded
-```
-- Using ```std::vector```is too slow than static arrays.
-```
+  ```
+  - Using ```std::vector```is too slow than static arrays.
+  ```
 NOTE: reserve does not change the size!! resize does
 vector<vector<bool>> table (n, vector<bool> (n, false)); //avoid using this
 
