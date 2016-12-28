@@ -123,6 +123,17 @@ queue::pop();
 ```
 - priority_queue 
  - (Runtime analysis)[http://www.eecs.wsu.edu/~ananth/CptS223/Lectures/heaps.pdf]
+ - constant time lookup and logaritmic time insertion and extraction
+ - Insertion of a vector into priority_queue
+ ```
+ //nlogn
+ for(auto n : nums) {
+   Q.push(n);
+ }
+ //n
+ priority_queue<T, vector<T>, decltype(cmp)> Q(cmp, nums);
+ ```
+ 
  
 ```
 #include<algorithm>
