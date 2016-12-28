@@ -118,6 +118,15 @@
 
 
 ### C++ Cheatsheet
+  - nth_element
+  ```
+  vector<int> nums;
+  auto cmp = ... ;
+  nith_element(nums.begin(), nums.begin() + index, nums.end(), cmp);
+  // NOTE: nums.begin() + index must point to the actual 0 based index
+  // After the call, index posn will have the required element to be present based on cmp sorting. 
+  ```
+  
   - stoi
     ```
     int stoi (const string&  str, size_t* idx = 0, int base = 10);
