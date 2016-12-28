@@ -122,6 +122,8 @@ queue::front();
 queue::pop();
 ```
 - priority_queue 
+ - (Runtime analysis)[http://www.eecs.wsu.edu/~ananth/CptS223/Lectures/heaps.pdf]
+ 
 ```
 #include<algorithm>
 push/pop/top
