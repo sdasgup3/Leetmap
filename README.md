@@ -7,8 +7,24 @@
   ```
   - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
 
+### Algorithm
+- Reservoir Sampling
+```
+For this problem, the simplest concrete example would be a stream that only contained a single item. In this case, our algorithm should return this single element with probability 1. 
 
-### Cheatsheet
+Now let’s try a slightly harder problem, a stream with exactly two elements. We know that we have to hold on to the first element we see from this stream, because we don’t know if we’re in the case that the stream only has one element. When the second element comes along, we know that we want to return one of the two elements, each with probability 1/2. So let’s generate a random number R between 0 and 1, and return the first element if R is less than 0.5 and return the second element if R is greater than 0.5.
+
+Now let’s try to generalize this approach to a stream with three elements. After we’ve seen the second element in the stream, we’re now holding on to either the first element or the second element, each with probability 1/2. When the third element arrives, what should we do? Well, if we know that there are only three elements in the stream, we need to return this third element with probability 1/3, which means that we’ll return the other element we’re holding with probability 1 – 1/3 = 2/3. That means that the probability of returning each element in the stream is as follows:
+
+First Element: (1/2)(prob of selecting) * (2/3)(probablity of holding) = 1/3
+Second Element: (1/2) * (2/3) = 1/3
+Third Element: 1/3
+
+By considering the stream of three elements, we see how to generalize this algorithm to any N: at every step N, keep the next element in the stream with probability 1/N. This means that we have an (N-1)/N probability of keeping the element we are currently holding on to, which means that we keep it with probability (1/(N-1)) * (N-1)/N = 1/N.
+
+```
+
+### C++ Cheatsheet
 - stoi
   ```
   int stoi (const string&  str, size_t* idx = 0, int base = 10);
