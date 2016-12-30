@@ -20,9 +20,7 @@ private:
 int main() {
   Solution S;
 
-  vector<string> D;
-
-  D.push_back("dear");
+  vector<int> D({});
 
   S.ValidWordAbbr(D);
 

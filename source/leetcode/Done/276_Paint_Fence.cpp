@@ -14,28 +14,21 @@ n and k are non-negative integers.
 class Solution {
 public:
     int numWays(int n, int k) {
-        int *S = new int[n+1];
-        int *D = new int [n+1];
-        int *R = new int [n+1];
+      if(0 ==n || 0 == k ) return 0;
         
-        if(n == 0 || k == 0 ) {
-            return 0;
-        }
-        if(n == 1) {
-            return k;
-        }
+        vector<int> S(n+1), D(n+1), R(n+1);
+        
+        if(1 == n) return k;
         
         S[2] = k;
         D[2] = k*(k-1);
-        R[2] = S[2] + D[2];
         
-        for(int i = 3; i <= n ; i++ ) {
+        for(int i = 3 ; i <= n; i++) {
             S[i] = D[i-1];
-            D[i] = S[i-1]*(k-1) + D[i-1]*(k-1);
-            R[i] = S[i] + D[i];
+            D[i] = (S[i-1] + D[i-1])*(k-1);
         }
         
-        return R[n];
+        return S[n] + D[n];
     }
 };
 

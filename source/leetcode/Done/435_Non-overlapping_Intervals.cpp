@@ -51,10 +51,13 @@ after sorting with starts
     ---------2 
         ----------3   
 
+        Here 3 overlaps with 2 but NOT with 1 and our goal to return 2 as the max number of non overlapping intervals (1 and 3)
+
         and 
 ----------1
  ----- 2
        --------3
+        Here 3 overlaps with 1 but NOT with 2 and our goal to return 2 as the max number of non overlapping intervals (1 and 2)
 
        After we know that 1 and 2 are overlapping 3 might be nonoverlapping with either 1 or 2. So which interval (1or2) to consider for the iteration
        for interval 3

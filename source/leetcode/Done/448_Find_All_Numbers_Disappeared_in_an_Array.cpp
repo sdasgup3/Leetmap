@@ -14,21 +14,11 @@ Input:
 Output:
 [5,6]
  * Solution
+As we know the max possble numnber; make use of it
 
- One big hint in solving this problem is that we know the max element possible in this array.
- WIth that we can store aux information in the array like:
- For example in 
- a[i] = k
- we can store 
- a[i] = a[i] % (n+1) + t*(n+1) 
- so that we can later get individual conponents by
- k ==  a[i] % (n+1) and
- t == a[i]/ (n+1)
-
-  The idea here is to store the count as t
 
  * Tags
- Math, Array
+ Array
 */
 
 #include"header.h"
@@ -37,26 +27,25 @@ class Solution {
 public:
   vector<int> findDisappearedNumbers(vector<int>& nums) {
 
+    int sz = nums.size();
+    int mx = sz+1;
     vector<int> res;
-    size_t sz = nums.size();
-    int max = sz+1;
+    if(0 == mx) return res;
 
     for(int i = 0 ; i < sz; i++) {
-      int value = nums[i]%max;
-      nums[value-1] += max;
+      int actual_val = nums[i] % mx;
+      nums[actual_val-1] += mx;
     }
 
     for(int i = 0 ; i < sz; i++) {
-      int count = nums[i]/max;
-      if(0 == count) {
+      int actual_count = nums[i] / mx;
+      if(0 == actual_count) {
         res.push_back(i+1);
       }
     }
 
     return res;
-
   }
-private:
 
 };
 

@@ -14,14 +14,63 @@ minStack.getMin();   --> Returns -3.
 minStack.pop();
 minStack.top();      --> Returns 0.
 minStack.getMin();   --> Returns -2.
+
+Solution:
+Mantain a second stack to hold the min correnpoding to each entry of main stack
+
+Tags:
+Satck
 */
 
 #include"header.h"
-
 class MinStack {
 public:
     /** initialize your data structure here. */
     MinStack() {
+    
+    }
+    
+    void push(int x) {
+        main.push(x);
+        if(aux.empty()) {
+            aux.push(x);
+        } else {
+            
+            int prev_min = aux.top();
+            if(x <= prev_min) {
+                aux.push(x);
+            } else {
+                aux.push(prev_min);
+            }
+        }
+    }
+    
+    void pop() {
+        if(main.empty()) {
+            return;
+        } 
+        
+        main.pop();
+        aux.pop();
+        
+    }
+    
+    int top() {
+        return main.top();
+    }
+    
+    int getMin() {
+         return aux.top();
+    }
+private:
+    stack<int> main, aux;
+    
+};
+
+class MinStack1 {
+public:
+    /** initialize your data structure here. */
+    MinStack1() {
       tp = -1;
     }
     

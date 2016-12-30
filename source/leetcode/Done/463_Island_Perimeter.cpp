@@ -26,6 +26,7 @@ Explanation: The perimeter is the 16 yellow stripes in the image below:
 
 
  * Tags
+ Grid Traversal
 */
 
 #include"header.h"

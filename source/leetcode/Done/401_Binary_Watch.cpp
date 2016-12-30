@@ -12,6 +12,13 @@ Note:
 The order of output does not matter.
 The hour must not contain a leading zero, for example "01:00" is not valid, it should be "1:00".
 The minute must be consist of two digits and may contain a leading zero, for example "10:2" is not valid, it should be "10:02".
+
+Solution:
+1. find out all the nums with n 1's. Difficult
+2. Iterate through the valid times and count num of 1s in them
+
+Tags
+Bits
 */
 
 #include"header.h"

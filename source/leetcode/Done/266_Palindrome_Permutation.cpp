@@ -1,5 +1,4 @@
 /*
-* Problem
 Given a string, determine if a permutation of the string could form a palindrome.
 
 For example, "code" -> False, "aab" -> True, "carerac" -> True.
@@ -8,15 +7,15 @@ Hint:
 
 Consider the palindromes of odd vs even length. What difference do you notice? Count the frequency of each character. If each character occurs even number of times, then it must be a palindrome. How about character which occurs odd number of times?
 
+Solution:
+Count the frequency in a map
+Once the count reaches even, delete the member
+At the end look for map size 0 or 1
+for size ==1 , no need to look at the count beecause the count can never be >1
 
-* Solution
-insert elemnts in a map
-on getting a hit delete it
-That will ensure that el;ems with even occurances will be all deleted and only elems withh odd occurances will remain
-
-
-* Tags
+Tags:
 Map
+
 */
 
 #include<iostream>

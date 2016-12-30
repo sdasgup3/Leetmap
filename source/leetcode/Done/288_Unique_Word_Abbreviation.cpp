@@ -27,13 +27,43 @@
   isUnique("cane") -> false
   isUnique("make") -> true 
   isUnique("card") -> true // No other word has the same abbr
+
+
+Tags:
+Map
 */
 
 #include"header.h"
-class Solution {
+class ValidWordAbbr {
+    unordered_map<string, unordered_map<string, bool>> M;
+ public:
+    string findAbb(string s) {
+        int l = s.length();
+        if(l <= 2) return s;
+        
+        return s[0] + to_string(l-2) + s[l-1];
+    }
+    ValidWordAbbr(vector<string> &dictionary) {
+        for(auto s: dictionary) {
+            string abb = findAbb(s);
+            M[abb][s] = true;
+        }
+        
+    }
 
-public:
-  string findAbb(string &s) {
+    bool isUnique(string word) {
+        string abb = findAbb(word);
+        if(0 == M.count(abb)) {
+            return true;
+        } else {
+            return M[abb].size() == 1 && M[abb].count(word);
+        }
+    }
+};
+
+class ValidWordAbbr {
+    public:
+    string findAbb(string &s) {
     int len = s.length();
     if(len <= 2) {
       return s;
@@ -45,16 +75,10 @@ public:
     return res;
   }
 
-  void ValidWordAbbr(vector<string> &dictionary) {  
+   ValidWordAbbr(vector<string> &dictionary) {  
     for(auto &s : dictionary) {
       string key = findAbb(s);
-      if(M.find(key) == M.end()) {
-        unordered_set<string> val;
-        val.insert(s);
-        M[key] = val;
-      } else {
-        M[key].insert(s);
-      }
+      M[key].insert(s);
     }
   }
 
@@ -70,7 +94,9 @@ public:
 
 private:
   unordered_map<string, unordered_set<string>> M;
+
 };
+
 
 
 int main() {

@@ -29,14 +29,15 @@ public:
         if(ln <=1) {
             return ans; 
         }
-        
-        for(int i = 0; i < ln; i++) {
-            if((s[i] == '+') && ( i+1 < ln) && (s[i+1] == '+')) {
-                s[i] = '-'; s[i+1] = '-';
-                ans.push_back(s);
-                s[i] = '+'; s[i+1] = '+';
+
+         for(int i = 0; i < ln-1; i++) {
+              if(s[i] == '+' && s[i+1] == '+') {
+                  s[i] = '-'; s[i+1]= '-';
+                  ans.push_back(s);
+                  s[i] = '+'; s[i+1]= '+';
+              }
             }
-        }
+        
         
         return ans;
         

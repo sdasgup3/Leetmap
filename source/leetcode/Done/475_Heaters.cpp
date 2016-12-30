@@ -18,6 +18,19 @@ Example 2:
 Input: [1,2,3,4],[1,4]
 Output: 1
 Explanation: The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.
+
+Solution:
+for each house find the nearest heater
+Find the max among those nearest heaters
+
+Also while doing the binary search in heaters
+this should not be done
+first = mid +1
+because house is not a member of heaters array so 
+heaters[mid] < house < heaters[mid+1]
+
+Tags
+Sort
 */
 
 #include"header.h"

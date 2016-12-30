@@ -41,27 +41,29 @@ Map
 using namespace std;
 
 class Logger {
-  private:
-      unordered_map<string, int> M;
-
+    private:
+    unordered_map<string, int> M;
 public:
+    /** Initialize your data structure here. */
     Logger() {
+        
     }
     
+    /** Returns true if the message should be printed in the given timestamp, otherwise returns false.
+        If this method returns false, the message will not be printed.
+        The timestamp is in seconds granularity. */
     bool shouldPrintMessage(int timestamp, string message) {
-      //unordered_map<string, int>::iterator f = M.find(message);
-      auto f = M.find(message);
-      if(f == M.end()) {
-        M[message] = timestamp + 9;
-        return true;
-      }
-
-      if(f->second < timestamp) {
-        M[message] = timestamp + 9;
-        return true;
-      } else {
-        return false;
-      }
+        if(0 == M.count(message)) {
+            M[message] = timestamp;
+            return true;
+        } else {
+            if(M[message] + 9 < timestamp) {
+                M[message] = timestamp;
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 };
 
