@@ -8,6 +8,19 @@
   - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
 
 ### Algorithm
+- Count number of 1s
+```
+int numSet(int n) {
+    int sum = 0 ;
+    while(n) {
+      n = n & (n-1);
+      sum++;
+    }
+
+    return sum;
+  }
+
+```
 - Quick Sort
   - Ascending
   ```
