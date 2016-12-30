@@ -8,6 +8,19 @@
   - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
 
 ### Algorithm
+- Count number of 1s
+```
+int numSet(int n) {
+    int sum = 0 ;
+    while(n) {
+      n = n & (n-1);
+      sum++;
+    }
+
+    return sum;
+  }
+
+```
 - Quick Sort
   - Ascending
   ```
@@ -118,6 +131,15 @@
 
 
 ### C++ Cheatsheet
+  - nth_element
+  ```
+  vector<int> nums;
+  auto cmp = ... ;
+  nith_element(nums.begin(), nums.begin() + index, nums.end(), cmp);
+  // NOTE: nums.begin() + index must point to the actual 0 based index
+  // After the call, index posn will have the required element to be present based on cmp sorting. 
+  ```
+  
   - stoi
     ```
     int stoi (const string&  str, size_t* idx = 0, int base = 10);
