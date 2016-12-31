@@ -309,6 +309,10 @@ int numSet(int n) {
     ```
 
   - ```std::map``` member funstions
+  ````
+  Do not use std::pair as a key of a map. Use unordered_map<int, unordered_map<int, bool> instead;
+  ```
+  
   ```
   map::erase(key); 
 
