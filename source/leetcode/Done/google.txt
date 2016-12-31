@@ -23,21 +23,21 @@
   401	Binary Watch	43.4%	Easy	
   345	Reverse Vowels of a String	37.2%	Easy	
   231	Power of Two	39.2%	Easy	
-326	Power of Three	39.2%	Easy	
+  326	Power of Three	39.2%	Easy	
   20	Valid Parentheses	32.0%	Easy	
   447	Number of Boomerangs	42.2%	Easy	
   246	Strobogrammatic Number 	38.8%	Easy	
-261	Graph Valid Tree 	36.4%	Medium	
+  261	Graph Valid Tree 	36.4%	Medium	
   280	Wiggle Sort 	54.8%	Medium	
-406	Queue Reconstruction by Height	54.3%	Medium	
-370	Range Addition 	53.2%	Medium	
+  406	Queue Reconstruction by Height	54.3%	Medium	
+  370	Range Addition 	53.2%	Medium	
 362	Design Hit Counter 	52.6%	Medium	
-369	Plus One Linked List 	52.4%	Medium	
+  369	Plus One Linked List 	52.4%	Medium	
 451	Sort Characters By Frequency	50.7%	Medium	
 281	Zigzag Iterator 	48.0%	Medium	
-323	Number of Connected Components in an Undirected Graph 	46.4%	Medium	
-382	Linked List Random Node	46.1%	Medium	
-348	Design Tic-Tac-Toe 	45.1%	Medium	
+  323	Number of Connected Components in an Undirected Graph 	46.4%	Medium	
+  382	Linked List Random Node	46.1%	Medium	
+  348	Design Tic-Tac-Toe 	45.1%	Medium	
 294	Flip Game II 	45.1%	Medium	
 357	Count Numbers with Unique Digits	45.0%	Medium	
 356	Line Reflection 	29.9%	Medium	

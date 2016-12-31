@@ -29,12 +29,15 @@ counter.getHits(300);
 // get hits at timestamp 301, should return 3.
 counter.getHits(301); 
 
-
+Solution:
 Take and aray to store the timestamps and upon arrival of a hit check if any of the earlier timestamps are invalidated
 
 Follow up:
 What if the number of hits per second could be very large? Does your design scale?
 Circular array
+
+Tags:
+Array
 */
 
 #include"header.h"
