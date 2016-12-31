@@ -8,6 +8,14 @@
   - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
 
 ### Algorithm
+- Find all the root to leaf path
+  Consider the following recorsive calls for left and right  subtree. If str is  a reference then the entire teft path
+  will be refelcted in right pth as well. We dont want that. So choose ref carefully!!
+```
+            helper(root->left, str);
+            helper(root->right, str); 
+```
+
 - Count number of 1s
 ```
 int numSet(int n) {
