@@ -44,7 +44,7 @@ do {
 
 #include"header.h"
 
-class ZigzagIterator {
+class ZigzagIterator1 {
     private:
     int turn; 
     vector<int> posn;
@@ -52,7 +52,7 @@ class ZigzagIterator {
     vector<vector<int>> V;
     int K;
 public:
-    ZigzagIterator(int k, vector<vector<int>>& V) {
+    ZigzagIterator1(int k, vector<vector<int>>& V) {
         posn.resize(k,0);
         limits.resize(k,0);
         for(int i = 0 ; i < k ;  i++) {
@@ -86,11 +86,52 @@ public:
     }
 };
 
-/**
- * Your ZigzagIterator object will be instantiated and called as such:
- * ZigzagIterator i(v1, v2);
- * while (i.hasNext()) cout << i.next();
- */
+class ZigzagIterator {
+    private:
+    int turn;
+    int k;
+    vector<int> posn;
+    vector<int> end;
+    vector<vector<int>> V;
+public:
+    ZigzagIterator(vector<int>& v1, vector<int>& v2) {
+        k = 2;
+        V.push_back(v1);
+        V.push_back(v2);
+        
+        turn  = k-1;
+        posn.resize(k,0);
+        end.resize(k);
+        
+        for(int i = 0 ; i < k ;i ++) {
+            end[i] = V[i].size();
+        }
+        
+    }
+
+    int next() {
+        int val = V[turn][posn[turn]];
+        posn[turn] ++;
+        return val;
+    }
+
+    bool hasNext() {
+        turn = (turn +1)%k;
+        
+        int runner = turn;
+        do {
+            if(posn[runner] < end[runner]) {
+                turn  = runner;
+                return true;
+            }
+            
+            runner = (runner + 1)%k;
+            
+        } while (runner != turn);
+        
+        return false;
+    }
+};
 
 
 int main() {
@@ -100,9 +141,9 @@ int main() {
   V.push_back({3,4,5});
   V.push_back({6,7,8,9});
 
-  ZigzagIterator Z(3, V);
+  ZigzagIterator Z(V[0], V[1]);
   while (Z.hasNext()) 
-    cout << Z.next();
+    cout << Z.next() << "\n";
 
   return 0;
 }
