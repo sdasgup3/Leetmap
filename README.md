@@ -149,6 +149,11 @@ int numSet(int n) {
 
 
 ### C++ Cheatsheet
+  - find
+    ```
+     find(vector.begin(), vector.end(), target) - vector.begin();
+    ```
+    
   - nth_element
   ```
   vector<int> nums;
