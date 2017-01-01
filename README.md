@@ -1,4 +1,14 @@
 ### Tips
+  - In grid traversal problebs, do not forget to provide base case for gird retrival; else you will end up traversaing in a loop
+  - In grid traversal, while traversal the 4 corners, make make sure to check
+  ```
+        for(int i = 0 ; i < c; i++) {
+            if(r > 1)
+              if(board[r-1][i] == 'O') { // else r-1 is -1
+                mark(board, r-1, i);
+              }
+        }
+  ```
   - If we know the size of the input that we intend to store in a map, go for an array instead
   ```
   Say we need to know the frequency of each char in a string and we know the string is composed of 256 chars max
@@ -8,6 +18,14 @@
   - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
 
 ### Algorithm
+- Find all the root to leaf path
+  Consider the following recorsive calls for left and right  subtree. If str is  a reference then the entire teft path
+  will be refelcted in right pth as well. We dont want that. So choose ref carefully!!
+```
+            helper(root->left, str);
+            helper(root->right, str); 
+```
+
 - Count number of 1s
 ```
 int numSet(int n) {
@@ -131,6 +149,11 @@ int numSet(int n) {
 
 
 ### C++ Cheatsheet
+  - find
+    ```
+     find(vector.begin(), vector.end(), target) - vector.begin();
+    ```
+    
   - nth_element
   ```
   vector<int> nums;
@@ -301,6 +324,10 @@ int numSet(int n) {
     ```
 
   - ```std::map``` member funstions
+  ````
+  Do not use std::pair as a key of a map. Use unordered_map<int, unordered_map<int, bool> instead;
+  ```
+  
   ```
   map::erase(key); 
 
