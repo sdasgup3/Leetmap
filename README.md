@@ -1,4 +1,14 @@
 ### Tips
+  - In grid traversal problebs, do not forget to provide base case for gird retrival; else you will end up traversaing in a loop
+  - In grid traversal, while traversal the 4 corners, make make sure to check
+  ```
+        for(int i = 0 ; i < c; i++) {
+            if(r > 1)
+              if(board[r-1][i] == 'O') { // else r-1 is -1
+                mark(board, r-1, i);
+              }
+        }
+  ```
   - If we know the size of the input that we intend to store in a map, go for an array instead
   ```
   Say we need to know the frequency of each char in a string and we know the string is composed of 256 chars max
