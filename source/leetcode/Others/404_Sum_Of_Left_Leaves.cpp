@@ -10,48 +10,42 @@ Example:
    15   7
 
 There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+
+Tags:
+Tree
 */
 
 #include"header.h"
 class Solution {
 public:
-
-    int helper(TreeNode* root, int isleft) {
-      if(NULL == root->left && NULL == root->right ) {
-        if(isleft) {
-          return root->val;
-        } else {
-          return 0;
+   void helper(TreeNode *root, bool left) {
+        if(!root->left && !root->right) {
+            if(left) sum += root->val;
+            return;
         }
-      }
+        
+        if(root->left && root->right) {
+            helper(root->left, true);
+            helper(root->right, false);
+        }
+        
+        if(!root->left) {
+            helper(root->right, false);
+        }
+        
+        if(!root->right) {
+            helper(root->left, true);
+        }
+    }
+    int sumOfLeftLeaves(TreeNode* root) {
+        sum = 0;
+        if(!root) return sum;
+        
+        helper(root, false);
+        
+        return sum;
+    }
 
-      if(root->left && root->right) {
-        return helper(root->left,  1) + helper(root->right, 0);
-      } else if(root->right){
-        return helper(root->right, 0);
-      } else  {
-        return helper(root->left, 1);
-      }
-
-    }
-   int sumOfLeftLeaves(TreeNode* root) {
-    if(!root) {
-      return 0;
-    }
-    
-    if(NULL == root->left && NULL == root->right ) {
-      return 0;
-    }
-  
-      if(root->left && root->right) {
-        return helper(root->left,  1) + helper(root->right, 0);
-      } else if(root->right){
-        return helper(root->right, 0);
-      } else  {
-        return helper(root->left, 1);
-      }
-         
-    }
 };
 
 

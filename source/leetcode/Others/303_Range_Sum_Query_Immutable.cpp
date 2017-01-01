@@ -10,38 +10,12 @@ sumRange(0, 5) -> -3
 Note:
 You may assume that the array does not change.
 There are many calls to sumRange function.
+
+Tags:
+Partial Sum
 */
 
 #include"header.h"
-/*
-class NumArray {
-  private:
-    vector<vector<int>> arr;
-public:
-    NumArray(vector<int> &nums) {
-        int s = nums.size();
-        arr.reserve(s);
-        for(int i = 0 ; i < s ; i ++) {
-          arr[i].reserve(s);
-        }
-
-
-        int sum = 0;
-        for(int i = 0 ; i < s ; i ++) {
-            sum = 0;
-            for(int j = i ; j < s ; j ++) {
-                sum += nums[j];
-                arr[i][j] = sum;
-            }
-        }
-    }
-
-    int sumRange(int i, int j) {
-        return arr[i][j];
-        
-    }
-};
-*/
 class NumArray {
   private:
     vector<int> arr;

@@ -17,12 +17,15 @@ We need two maps for this
 Map1: word to letter
 Map2: letter to word
 
-
+Solution:
 scan through the words
   if the Map1[word] does not exist; 
     check if Map2[letter] also does not exist; else error
     Map1[word] = letter; Map2[leter] = word
   if already exits; check letter == Map1[word]
+
+Tag:
+Map
 */
 
 #include"header.h"

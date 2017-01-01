@@ -14,11 +14,24 @@ The root-to-leaf path 1->2 represents the number 12.
 The root-to-leaf path 1->3 represents the number 13.
 
 Return the sum = 12 + 13 = 25.
+
+Tags:
+Tree
 */
 
 #include"header.h"
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
-  private:
+
+ private:
     int sum;
 public:
     Solution(): sum(0) {}
@@ -27,7 +40,7 @@ public:
 
       if(NULL == root->left && NULL == root->right) {
         s  += std::to_string(root->val);
-        cout << s << "\n";
+        //cout << s << "\n";
         sum += std::stoi(s);
         return;
       }
@@ -47,22 +60,15 @@ public:
     if(!root) {
       return sum;
     }
+    
+    string s("");
+    helper(root, s);
 
-    if(NULL == root->left && NULL == root->right) {
-      return root->val;
-    }
-
-      if(root->left && root->right) {
-        helper(root->left,std::to_string(root->val) );
-        helper(root->right,std::to_string(root->val) );
-      } else if(root->left) {
-        helper(root->left,std::to_string(root->val) );
-      } else {
-        helper(root->right,std::to_string(root->val) );
-      }
     return sum;
         
   }
+
+
 };
 
 

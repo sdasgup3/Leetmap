@@ -23,6 +23,9 @@ Subscribe to see which companies asked this question
 Overflow cond: sum*10 + rem > INTMAX or sum > (INTMAX - rem )  / 10
 Underflow cond: sum*10 + rem < INTMIN or sum < (INTMAX - rem )  / 10
 
+Tag: 
+Math
+
 */
 
 #include"header.h"

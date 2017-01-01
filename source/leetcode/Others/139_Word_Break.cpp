@@ -6,6 +6,9 @@ s = "leetcode",
 dict = ["leet", "code"].
 
 Return true because "leetcode" can be segmented as "leet code".
+
+Tags:
+Array
 */
 
 #include"header.h"
