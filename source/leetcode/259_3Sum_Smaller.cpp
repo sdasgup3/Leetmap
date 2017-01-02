@@ -48,6 +48,65 @@ i.e 1 results
 
 #include"header.h"
 class Solution {
+public:
+    int twosum(vector<int>& nums, int start, int end , int target) {
+        int sum = 0;
+
+        int ptr1 = end;
+        int ptr2 = end-1;
+
+        while(start <= ptr2) {
+            int tmp = nums[ptr1] + nums[ptr2];
+            if(tmp < target) {
+                sum += (ptr2-start+1)*(ptr1-start+1)/2;
+                cout << ptr1 << " " << nums[ptr1] << " " << ptr2 << " " << nums[ptr2] <<  " " << sum << "\n";
+                break;
+            } else { 
+              ptr1--;
+              ptr2--;
+            }
+          
+        }
+        /*
+        while(start < end) {
+            int tmp = nums[start] + nums[end];
+            if(tmp < target) {
+            cout << start << " " << nums[start] << " " << end << " " << nums[end] <<"\n";
+                sum++;
+                start ++; end--;
+            } else { 
+                end --;
+            }
+        }
+        */
+        
+        return  sum;
+    }
+
+    int threeSumSmaller(vector<int>& nums, int target) {
+        int sum = 0;
+        
+        int sz = nums.size();
+        if(0 == sz) return 0;
+        
+        sort(nums.begin(), nums.end());
+        cout << nums;
+        
+        for(int i = 0 ; i < sz-2 ;i++) {
+            int t = target-nums[i];
+            cout << t << "\n";
+            sum +=  twosum(nums, i+1, sz-1, t) ;
+        }
+        
+        
+        return sum;
+
+        
+    }
+};
+
+
+class Solution2 {
 
 public:
 int threeSumSmaller(vector<int>& nums, int target) {

@@ -1,4 +1,8 @@
 /* Problem Description
+Reverse a singly linked list.
+
+Tags:
+List
  *
 */
 

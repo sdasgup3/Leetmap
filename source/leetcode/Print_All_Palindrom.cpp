@@ -1,17 +1,11 @@
 /*
- Print all palindrome permutations of a string
-Given a string, we need to print all possible palindromes that can be generated using letters of that string.
+   Given a string s, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form.
 
-Examples:
+For example:
 
-Input:  str = "aabcb"
-Output: abcba bacab
+Given s = "aabb", return ["abba", "baab"].
 
-nput:  str = "aabbcadad"
-Output: aabdcdbaa aadbcbdaa abadcdaba
-        abdacadba adabcbada adbacabda
-        baadcdaab badacadab bdaacaadb
-        daabcbaad dabacabad dbaacaabd
+Given s = "abc", return [].
 */
 
 #include<vector>

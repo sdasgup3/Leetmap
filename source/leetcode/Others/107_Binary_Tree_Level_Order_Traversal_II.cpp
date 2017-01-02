@@ -14,9 +14,57 @@ return its bottom-up level order traversal as:
   [9,20],
   [3]
 ]
+
+Tags:
+Tree
 */
 
 #include"header.h"
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrderBottom(TreeNode* root) {
+        vector<TreeNode *> buff1, buff2;
+        vector<vector<int>> res;
+        
+        if(!root) return res;
+        if(root) buff1.push_back(root);
+        int sz = buff1.size();
+        
+        while(0 != sz) {
+            vector<int> tmp;
+            for(int i= 0 ; i< sz;i++) {
+                tmp.push_back(buff1[i]->val);
+                
+                if(buff1[i]->left) {
+                    buff2.push_back(buff1[i]->left);
+                }
+                
+                if(buff1[i]->right) {
+                    buff2.push_back(buff1[i]->right);
+                }
+            }
+            
+            res.push_back(tmp);
+            buff1 = buff2;
+            buff2.clear();
+            sz = buff1.size();
+        }
+        
+        reverse(res.begin(), res.end());
+        
+        return res;
+    }
+};
+
 class Solution {
 public:
     void rec (vector<TreeNode*> buffer) {

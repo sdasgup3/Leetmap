@@ -14,27 +14,27 @@ Your function should return length = 2, with the first two elements of nums bein
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-      int size = nums.size();
-      if(size <= 1) {
-        return size;
-      }
-
-      int runner = 1;
-      int visited = nums[0];
-
-      int counter = 1;
-      while(1) {
-        while(counter < size && visited == nums[counter]) {
-          counter++;
+        // 1 2 3  
+        
+        int sz = nums.size();
+        if(sz <= 1) return sz;
+        
+        int insert = 0;
+        int runner = 0;
+        
+        while(1) {
+            
+            while(runner +1  < sz && nums[runner] == nums[runner + 1]) {
+                runner ++;
+            }
+            nums[insert++] = nums[runner];
+            
+            if(runner +1 == sz) break;
+            runner ++;
+            
         }
-
-        if(counter == size) {
-          return runner; 
-        }
-
-        nums[runner++] = visited = nums[counter];
-        counter++;
-      }
+        
+        return insert ;
     }
 };
 

@@ -20,6 +20,17 @@ After running your function, the 2D grid should be:
   2   2   1  -1
   1  -1   2  -1
   0  -1   3   4
+Solution:
+
+We want to traverse INFs and numbers 
+but need to avoid loops 
+2 - INF
+2--3
+now we wat 3 to again correct 2
+
+
+Tags:
+Grid traversal
 */
 
 #include"header.h"
