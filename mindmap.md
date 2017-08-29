@@ -1,4 +1,5 @@
-# 665. Non-decreasing Array
+## Array
+  # 665. Non-decreasing Array
   - Example: A = [a b c  d]
       - Find all pairs such that A[i] > A[i+1]
         - If more that one such pairs, return false
