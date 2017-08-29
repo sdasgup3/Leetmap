@@ -14,4 +14,5 @@ The key file to use from this project is mindmap.md. Try out any markdown to min
 
 ## Other contents
   - [Tips](Tips.md): Interesting concepts related to algorithms and coding style.
-  - Go:   
+  - [Go](Go/): Go implementation of Leetcode problems
+  - [C++](C++/): C++ implementation of Leetcode problems   
