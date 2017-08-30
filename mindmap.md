@@ -20,6 +20,9 @@
   - Example 1 4 2 3
     - 4 is modifiable is the pair 4 2
   - Example 3 4 2 4
-    - 2 is modifiable is the pair 4 2 
+    - 2 is modifiable is the pair 4 2
 
-                -
+    # 657. Judge Route Circle
+      - Option 1 : Use two variable to track the vertical and horizontal movements.
+      At the end of the input string check if total horizontal movement == total vertical movement == 0  
+      - Option 2: Use just a single variable.

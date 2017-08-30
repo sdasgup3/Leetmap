@@ -1,10 +1,8 @@
 package solution
 
-import (
-	
-)
+import ()
 
-func checkPossibility(nums []int) bool {
+func CheckPossibility(nums []int) bool {
 	count := 0
 	first_violation := -1
 
