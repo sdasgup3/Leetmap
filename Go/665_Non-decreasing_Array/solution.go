@@ -1,7 +1,7 @@
-package main
+package solution
 
 import (
-	"fmt"
+	
 )
 
 func checkPossibility(nums []int) bool {
@@ -33,18 +33,4 @@ func checkPossibility(nums []int) bool {
 		return true
 	}
 	return false
-}
-
-func main() {
-	v := []int{4, 2, 3}
-	fmt.Println(v)
-	fmt.Println(checkPossibility(v))
-
-	v = []int{4, 2, 1}
-	fmt.Println(v)
-	fmt.Println(checkPossibility(v))
-
-	v = []int{3, 4, 2, 3}
-	fmt.Println(v)
-	fmt.Println(checkPossibility(v))
 }
