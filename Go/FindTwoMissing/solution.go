@@ -1,9 +1,10 @@
 package solution
+//http://www.geeksforgeeks.org/find-two-missing-numbers-set-2-xor-based-solution/
 
 import (
 )
 
-func FindErrorNums(nums []int) []int {
+func FindTwoMissing(nums []int) []int {
 	n := len(nums)
   k := n+1
 

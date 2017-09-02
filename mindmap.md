@@ -1,3 +1,6 @@
+# Approaches
+  - A1: Add auxiliary information when upper bound of an array is known.
+
 # __Array__
   - 665:Non-decreasingArray
     - Example: A = [a b c  d]
@@ -29,5 +32,10 @@
     - Option 2: Use just a single variable.
   - __HashMap__
     - 645: SetMismatch
-      - Option1: A map is used to find duplicates and  used the sum to find the missing number.
-      - Option 2: Use a fixed size (== length of input)array. 
+      - Option1: A map is used to find duplicates and  use the sum to find the missing number.
+      - Option 2: Use a fixed size (== length of input)array.
+        - In one pass find the one which is duplicate by tagging the array
+        - In second, find the one which is not tagged and hence the missing one.
+      - Option 3: Use Math
+        - S' - x + y = S && S'^2 - x^2 + y^2 = S^2
+      - Option 4: A1

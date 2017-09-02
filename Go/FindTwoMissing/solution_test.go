@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestFindErrorNums(t *testing.T) {
+func TestFindTwoMissing(t *testing.T) {
 	for _, tc := range []struct {
 		input []int
 		want  []int
