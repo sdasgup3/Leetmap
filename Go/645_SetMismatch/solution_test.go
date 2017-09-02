@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestFindErrorNums(t *testing.T) {
+func TestFindErrorNums1(t *testing.T) {
 	for _, tc := range []struct {
 		input []int
 		want  []int
@@ -19,7 +19,31 @@ func TestFindErrorNums(t *testing.T) {
 		},
 	} {
 
-		got := FindErrorNums(tc.input)
+		got := FindErrorNums2(tc.input)
+
+		if false == equalSliceInts(got, tc.want) {
+			t.Errorf("Fail\n\t input: %#v\n\t got: %#v\n\t want: %#v",
+				tc.input, got, tc.want)
+		}
+	}
+}
+
+func TestFindErrorNums2(t *testing.T) {
+	for _, tc := range []struct {
+		input []int
+		want  []int
+	}{
+		{
+			input: []int{1, 2, 2, 4},
+			want:  []int{2, 3},
+		},
+		{
+			input: []int{1, 2, 4, 4, 5,6},
+			want:  []int{4, 3},
+		},
+	} {
+
+		got := FindErrorNums2(tc.input)
 
 		if false == equalSliceInts(got, tc.want) {
 			t.Errorf("Fail\n\t input: %#v\n\t got: %#v\n\t want: %#v",
