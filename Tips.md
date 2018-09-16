@@ -15,6 +15,56 @@
   so instead of doing M[c] ++ , do V[c] ++
 
   - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
+  - While using a map check if the problem can be solved with a constant space map. This will reduce the space complexity to constant space.
+    Candidates are if the number od keys is a constant like english alphabets. Example:   771 Jewels
+  - Be careful about the definition of swap
+  - While doing binary search make sure we do not have computation incloving mid +- n, for example
+  ```
+   bool findPivot(const vector<int>& nums, int &pivot) {
+        int n = nums.size();
+        
+        if(nums[0] < nums[n-1]) {
+            return false;
+        }
+        
+        int first = 0;
+        int last = n-1;
+        while(first <= last) {
+            auto mid = first + (last-first)/2;
+            // Added to avoid OOB nid -1
+            if(mid == first) {
+                mid++;
+            }
+
+            if(nums[mid] < nums[mid-1]) {
+                pivot = mid;
+                return true;
+            }
+            if(nums[first] < nums[mid]) {
+                first = mid;
+            } else {
+                last = mid;        
+            }
+        }
+    }
+
+  ```
+  - Handy merge list
+  ```
+    ListNode *mergeList(ListNode*l1, ListNode *l2) {
+        if(!l1) return l2;
+        if(!l2) return l1;
+        
+        if(l1->val <= l2->val) {
+            l1->next = mergeList(l1->next, l2);
+            return l1;
+        } else {
+            l2->next = mergeList(l1, l2->next);
+            return l2;
+        }
+    }
+
+  ```
 
 ### Algorithm
 - Find all the root to leaf path
@@ -147,38 +197,29 @@
   the element we are currently holding on to, which means that we keep it with
   probability (1/(N-1)) * (N-1)/N = 1/N.
 
+- Implementing operators using ne
+```
+a > b == b < a
+a <= b == !(b < a)
+a >= b == !(a < b)
+It's even possible to implement equality in terms of less than (Kind of abusing my meta-syntax here):
 
-### Misc
+(a == b) == (!(a < b) && !(b < a))
+(a != b) == (a < b || b < a)
+```
 
-This page is about solving coding questions mostly asked in interviews.The problem/analysis/solutions mentioned in the post are categorized and can be used as a quick summary of useful algorithms.
+- tookenization
+```
+vector<std::string> split(const std::string &str, char delim) {
+  std::vector<std::string> tokens;
+  std::string token;
+  std::istringstream tokenStream(str);
+  while (std::getline(tokenStream, token, delim)) {
+    // cout << token << "\n";
+    // cout << trim(token) << "\n";
+    tokens.push_back(trim(token));
+  }
+  return tokens;
+}
 
-
-- [Array](http://codingpuzzle.blogspot.com/)
-- [Hash Table](http://codingpuzzle.blogspot.com/)
-- [Linked List](http://codingpuzzle.blogspot.com/)
-- [Math](http://codingpuzzle.blogspot.com/search/label/Math)
-- [Two Pointers](http://codingpuzzle.blogspot.com/)
-- [String](http://codingpuzzle.blogspot.com/)
-- [Divide and Conquer](http://codingpuzzle.blogspot.com/)
-- [Binary Search](http://codingpuzzle.blogspot.com/search/label/binarytree)
-- [Dynamic Programming](http://codingpuzzle.blogspot.com/)
-- [Backtracking](http://codingpuzzle.blogspot.com/)
-- [Stack](http://codingpuzzle.blogspot.com/)
-- [Heap](http://codingpuzzle.blogspot.com/)
-- [Greedy](http://codingpuzzle.blogspot.com/)
-- [Sort](http://codingpuzzle.blogspot.com/)
-- [Bit Manipulation](http://codingpuzzle.blogspot.com/)
-- [Tree](http://codingpuzzle.blogspot.com/)
-- [Depth-first Search](http://codingpuzzle.blogspot.com/)
-- [Breadth-first Search](http://codingpuzzle.blogspot.com/)
-- [Union Find](http://codingpuzzle.blogspot.com/)
-- [Graph](http://codingpuzzle.blogspot.com/)
-- [Design](http://codingpuzzle.blogspot.com/)
-- [Topological Sort](http://codingpuzzle.blogspot.com/)
-- [Trie](http://codingpuzzle.blogspot.com/)
-- [Binary Indexed Tree](http://codingpuzzle.blogspot.com/)
-- [Segment Tree](http://codingpuzzle.blogspot.com/)
-- [Binary Search Tree](http://codingpuzzle.blogspot.com/)
-- [Recursion](http://codingpuzzle.blogspot.com/)
-- [Brainteaser](http://codingpuzzle.blogspot.com/)
-- [Memoization](http://codingpuzzle.blogspot.com/)
+```
