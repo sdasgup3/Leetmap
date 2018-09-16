@@ -21,24 +21,25 @@
 - Find all the root to leaf path
   Consider the following recursive calls for left and right  subtree. If str is  a reference then the entire left path
   will be reflected in right path as well. We don't want that. So choose ref carefully!!
-```
-            helper(root->left, str);
-            helper(root->right, str); 
-```
+    ```
+                helper(root->left, str);
+                helper(root->right, str); 
+    ```
 
 - Count number of 1s
-```
-int numSet(int n) {
-    int sum = 0 ;
-    while(n) {
-      n = n & (n-1);
-      sum++;
-    }
+    ```
+    int numSet(int n) {
+        int sum = 0 ;
+        while(n) {
+          n = n & (n-1);
+          sum++;
+        }
+    
+        return sum;
+      }
+    
+    ```
 
-    return sum;
-  }
-
-```
 - Quick Sort
   - Ascending
   ```
