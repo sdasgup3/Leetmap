@@ -233,3 +233,24 @@
   or false if an equivalent element already existed.
 
   ```
+
+  - STL heap
+  ```
+    vector<int> T = {2,5,8,1,0,3};
+    auto cmp = [](int a, int b) {
+      return a < b;
+    };
+    make_heap(T.begin(), T.end(), cmp);
+
+    vector<int> P = {20,50,80};
+    for(auto p : P) {
+      T.push_back(p);
+      push_heap(T.begin(), T.end(), cmp);
+    }
+
+    while(!T.empty()) {
+      cout << T[0] <<  " ";
+      pop_heap(T.begin(), T.end(), cmp);
+      T.pop_back();
+    }
+  ```
