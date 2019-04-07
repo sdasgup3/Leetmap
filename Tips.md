@@ -1,18 +1,20 @@
 ### Tips
   - In grid traversal problems, do not forget to provide base case for gird retrival; else you will end up traversing in a loop
   - In grid traversal, while traversal the 4 corners, make make sure to check
-  ```
-  for(int i = 0 ; i < c; i++) {
-    if(r > 1)
-               if(board[r-1][i] == 'O') { // else r-1 is -1
-                 mark(board, r-1, i);
-               }
-         }
-  ```
-
+    ```
+        for(int i = 0 ; i < c; i++) {
+            if(r > 1)
+              if(board[r-1][i] == 'O') { // else r-1 is -1
+                mark(board, r-1, i);
+              }
+        }
+    ```
   - If we know the size of the input that we intend to store in a map, go for an array instead
-    - Say we need to know the frequency of each char in a string and we know the string is composed of 256 chars max
-  so instead of doing M[c] ++ , do V[c] ++
+    ```
+     Say we need to know the frequency of each char in a string and we know the string is composed of 256 chars max
+     so instead of doing M[c] ++ , do V[c] ++
+
+    ```
 
   - For getting for aux info of a tree, do the computation using a runner. Using root instead will modify the tree itself.
   - While using a map check if the problem can be solved with a constant space map. This will reduce the space complexity to constant space.
@@ -70,10 +72,10 @@
 - Find all the root to leaf path
   Consider the following recursive calls for left and right  subtree. If str is  a reference then the entire left path
   will be reflected in right path as well. We don't want that. So choose ref carefully!!
-    ```
-                helper(root->left, str);
-                helper(root->right, str); 
-    ```
+   ```
+            helper(root->left, str);
+            helper(root->right, str); 
+   ```
 
 - Count number of 1s
     ```
